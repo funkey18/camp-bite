@@ -18,14 +18,56 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    *{
+    *,
+    *::before,
+    *::after{
+      box-sizing: border-box;
+    }
+
+    html{
       scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height, 5.5rem);
+      margin: 0;
+      padding: 0;
+      width: 100%;
     }
 
     body{
       font-family: "Poppins", sans-serif;
       background: #111111;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .site-container{
+      width: 100%;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @media (min-width: 768px){
+      .site-container{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    .hero-section{
+      padding-top: calc(var(--header-height, 5.5rem) + 1.5rem);
+      padding-bottom: 3rem;
+      min-height: 100dvh;
+      width: 100%;
+    }
+
+    section[id],
+    footer[id]{
+      scroll-margin-top: var(--header-height, 5.5rem);
     }
 
     .hero-bg{
@@ -69,6 +111,32 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    .nav-link{
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    header nav .nav-link.active{
+      color: #fb923c;
+    }
+
+    header nav .nav-link.active::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, #ff7a00, #ff3d00);
+    }
+
+    #mobile-menu .nav-link.active{
+      color: #fb923c;
+      border-left: 3px solid #ff7a00;
+      padding-left: 0.75rem;
+    }
   </style>
 </head>
 
@@ -76,8 +144,8 @@
 
   <!-- ================= NAVBAR ================= -->
 
-  <header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
+    <div class="site-container py-3 md:py-4 flex items-center justify-between">
 
       <div class="flex items-center gap-3">
         <div class="w-14 h-14 md:w-20 md:h-20 shrink-0">
@@ -98,11 +166,11 @@
       </div>
 
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
-        <a href="#home" class="hover:text-orange-400 transition">Home</a>
-        <a href="#menu" class="hover:text-orange-400 transition">Menu</a>
-        <a href="#about" class="hover:text-orange-400 transition">About</a>
-        <a href="#offers" class="hover:text-orange-400 transition">Offers</a>
-        <a href="#contact" class="hover:text-orange-400 transition">Contact</a>
+        <a href="#home" class="nav-link hover:text-orange-400 transition">Home</a>
+        <a href="#menu" class="nav-link hover:text-orange-400 transition">Menu</a>
+        <a href="#offers" class="nav-link hover:text-orange-400 transition">Offers</a>
+        <a href="#about" class="nav-link hover:text-orange-400 transition">About</a>
+        <a href="#contact" class="nav-link hover:text-orange-400 transition">Contact</a>
       </nav>
 
       <button class="hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
@@ -129,11 +197,11 @@
     </div>
 
     <nav class="p-6 flex flex-col gap-5 text-base font-medium">
-      <a href="#home" class="mobile-link hover:text-orange-400 transition">Home</a>
-      <a href="#menu" class="mobile-link hover:text-orange-400 transition">Menu</a>
-      <a href="#about" class="mobile-link hover:text-orange-400 transition">About</a>
-      <a href="#offers" class="mobile-link hover:text-orange-400 transition">Offers</a>
-      <a href="#contact" class="mobile-link hover:text-orange-400 transition">Contact</a>
+      <a href="#home" class="nav-link mobile-link hover:text-orange-400 transition">Home</a>
+      <a href="#menu" class="nav-link mobile-link hover:text-orange-400 transition">Menu</a>
+      <a href="#offers" class="nav-link mobile-link hover:text-orange-400 transition">Offers</a>
+      <a href="#about" class="nav-link mobile-link hover:text-orange-400 transition">About</a>
+      <a href="#contact" class="nav-link mobile-link hover:text-orange-400 transition">Contact</a>
       <button class="orange-gradient mt-3 px-6 py-3 rounded-full font-semibold">
         Order Now
       </button>
@@ -142,9 +210,9 @@
 
   <!-- ================= HERO SECTION ================= -->
 
-  <section id="home" class="hero-bg min-h-screen flex items-center">
+  <section id="home" class="hero-bg hero-section">
 
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center pt-24">
+    <div class="site-container grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
 
       <div>
 
@@ -233,7 +301,7 @@
 
   <section id="menu" class="py-24 bg-[#121212]">
 
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="site-container">
   
       <div class="text-center">
   
@@ -389,7 +457,7 @@
 
   <section id="offers" class="py-24">
 
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="site-container">
 
       <div class="orange-gradient rounded-[50px] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center">
 
@@ -430,7 +498,7 @@
 
   <section id="about" class="py-24 bg-[#121212]">
 
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+    <div class="site-container grid lg:grid-cols-2 gap-20 items-center">
 
       <img
         src="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1200&auto=format&fit=crop"
@@ -488,7 +556,7 @@
 
   <footer id="contact" class="bg-black py-20 border-t border-white/10">
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-14">
+    <div class="site-container grid md:grid-cols-2 lg:grid-cols-4 gap-14">
 
       <div>
 
@@ -525,9 +593,18 @@
         </h3>
 
         <ul class="space-y-4 text-gray-400">
-          <li>📍 Jaihind College Area, Dhule</li>
-          <li>📞 +91 9876543210</li>
-          <li>📧 campbite@gmail.com</li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-location-dot text-orange-500 mt-1 shrink-0"></i>
+            <span>Jaihind College Area, Dhule</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-phone text-orange-500 mt-1 shrink-0"></i>
+            <span>+91 9876543210</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-envelope text-orange-500 mt-1 shrink-0"></i>
+            <span>campbite@gmail.com</span>
+          </li>
         </ul>
 
       </div>
@@ -577,6 +654,31 @@
   </footer>
 
   <script>
+    function setHeaderHeight() {
+      const header = document.getElementById("site-header");
+      if (!header) return;
+      document.documentElement.style.setProperty(
+        "--header-height",
+        header.offsetHeight + "px"
+      );
+    }
+
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
+    window.addEventListener("load", setHeaderHeight);
+
+    const headerLogo = document.querySelector("#site-header img");
+    if (headerLogo) {
+      headerLogo.addEventListener("load", setHeaderHeight);
+    }
+
+    if (typeof ResizeObserver !== "undefined") {
+      const header = document.getElementById("site-header");
+      if (header) {
+        new ResizeObserver(setHeaderHeight).observe(header);
+      }
+    }
+
     const mobileMenuBtn = document.getElementById("mobile-menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
     const mobileMenuClose = document.getElementById("mobile-menu-close");
@@ -599,6 +701,111 @@
     mobileMenuClose.addEventListener("click", closeMobileMenu);
     mobileMenuOverlay.addEventListener("click", closeMobileMenu);
     mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
+
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sectionIds = ["home", "menu", "offers", "about", "contact"];
+
+    function getSections() {
+      return sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean)
+        .sort((a, b) => a.offsetTop - b.offsetTop);
+    }
+
+    let isNavigating = false;
+    let scrollEndTimer;
+
+    function setActiveNav(sectionId) {
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+      });
+    }
+
+    function getHeaderOffset() {
+      const headerHeight = getComputedStyle(document.documentElement)
+        .getPropertyValue("--header-height")
+        .trim();
+      const parsed = parseFloat(headerHeight);
+      return Number.isFinite(parsed) ? parsed : 88;
+    }
+
+    function getSectionScrollTop(target, sectionId) {
+      const docHeight = document.documentElement.scrollHeight;
+      const maxScroll = docHeight - window.innerHeight;
+      let top =
+        target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+
+      if (sectionId === "contact") {
+        top = Math.max(top, maxScroll);
+      }
+
+      return Math.max(0, Math.min(top, maxScroll));
+    }
+
+    function updateActiveOnScroll() {
+      if (isNavigating) return;
+
+      const sections = getSections();
+      if (!sections.length) return;
+
+      const scrollY = window.scrollY;
+      const viewportBottom = scrollY + window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (viewportBottom >= docHeight - 120) {
+        setActiveNav("contact");
+        return;
+      }
+
+      const scrollPos = scrollY + getHeaderOffset() + 40;
+      let currentSection = sections[0].id;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (scrollPos >= sections[i].offsetTop) {
+          currentSection = sections[i].id;
+          break;
+        }
+      }
+
+      setActiveNav(currentSection);
+    }
+
+    function finishNavigation() {
+      isNavigating = false;
+      updateActiveOnScroll();
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (!href || !href.startsWith("#")) return;
+
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        const sectionId = href.slice(1);
+        isNavigating = true;
+        setActiveNav(sectionId);
+        closeMobileMenu();
+
+        window.scrollTo({
+          top: getSectionScrollTop(target, sectionId),
+          behavior: "smooth",
+        });
+
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(finishNavigation, 900);
+      });
+    });
+
+    setActiveNav("home");
+    updateActiveOnScroll();
+    window.addEventListener("scroll", () => {
+      if (!isNavigating) updateActiveOnScroll();
+    }, { passive: true });
+    window.addEventListener("resize", updateActiveOnScroll);
+    window.addEventListener("load", updateActiveOnScroll);
   </script>
 </body>
 </html>
