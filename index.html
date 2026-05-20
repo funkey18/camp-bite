@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Camp Bite | Burger Cafe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *{
+      scroll-behavior: smooth;
+    }
+
+    body{
+      font-family: "Poppins", sans-serif;
+      background: #111111;
+      overflow-x: hidden;
+    }
+
+    .hero-bg{
+      background:
+      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.8)),
+      url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1600&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .orange-gradient{
+      background: linear-gradient(135deg,#ff7a00,#ff3d00);
+    }
+
+    .card-bg{
+      background: #1a1a1a;
+    }
+
+    .glass{
+      backdrop-filter: blur(15px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .glow{
+      box-shadow: 0 0 30px rgba(255,119,0,0.3);
+    }
+
+    .hover-scale{
+      transition: 0.4s;
+    }
+
+    .hover-scale:hover{
+      transform: translateY(-10px);
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="text-white">
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 md:w-20 md:h-20 shrink-0">
+          <img
+            src="assets/logo-removebg-preview.png"
+            alt="Camp Bite logo"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="leading-tight">
+          <h1 class="text-xl md:text-2xl font-bold tracking-wide">
+            CAMP BITE
+          </h1>
+          <p class="text-[10px] md:text-xs text-orange-300 tracking-[3px]">
+            BURGER CAFE
+          </p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+        <a href="#home" class="hover:text-orange-400 transition">Home</a>
+        <a href="#menu" class="hover:text-orange-400 transition">Menu</a>
+        <a href="#about" class="hover:text-orange-400 transition">About</a>
+        <a href="#offers" class="hover:text-orange-400 transition">Offers</a>
+        <a href="#contact" class="hover:text-orange-400 transition">Contact</a>
+      </nav>
+
+      <button class="hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+        Order Now
+      </button>
+
+      <button id="mobile-menu-btn" class="md:hidden text-2xl p-2" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></div>
+
+  <aside
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#111111] border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 md:hidden"
+  >
+    <div class="p-6 flex items-center justify-between border-b border-white/10">
+      <h2 class="text-lg font-semibold">Menu</h2>
+      <button id="mobile-menu-close" class="text-2xl leading-none" aria-label="Close menu">
+        &times;
+      </button>
+    </div>
+
+    <nav class="p-6 flex flex-col gap-5 text-base font-medium">
+      <a href="#home" class="mobile-link hover:text-orange-400 transition">Home</a>
+      <a href="#menu" class="mobile-link hover:text-orange-400 transition">Menu</a>
+      <a href="#about" class="mobile-link hover:text-orange-400 transition">About</a>
+      <a href="#offers" class="mobile-link hover:text-orange-400 transition">Offers</a>
+      <a href="#contact" class="mobile-link hover:text-orange-400 transition">Contact</a>
+      <button class="orange-gradient mt-3 px-6 py-3 rounded-full font-semibold">
+        Order Now
+      </button>
+    </nav>
+  </aside>
+
+  <!-- ================= HERO SECTION ================= -->
+
+  <section id="home" class="hero-bg min-h-screen flex items-center">
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center pt-24">
+
+      <div>
+
+        <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange-500/20 border border-orange-400/20 mb-6">
+          <span>🔥</span>
+          <span class="text-sm font-medium">
+            Dhule’s Most Viral Burger Spot
+          </span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+          BIGGER.<br/>
+          JUICIER.<br/>
+          <span class="text-orange-500">
+            CAMP BITE.
+          </span>
+        </h1>
+
+        <p class="mt-8 text-lg text-gray-300 leading-8 max-w-xl">
+          Experience loaded burgers, creamy signature sauces,
+          crispy fries, and unforgettable bites made for the Gen Z generation.
+          Crafted with bold flavors and premium ingredients.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-5">
+
+          <button class="orange-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition">
+            Explore Menu
+          </button>
+
+          <button class="border border-white/20 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition">
+            Watch Reel
+          </button>
+        </div>
+
+        <div class="mt-12 flex gap-10">
+
+          <div>
+            <h3 class="text-3xl font-bold text-orange-400">5K+</h3>
+            <p class="text-gray-400 mt-1">Happy Customers</p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl font-bold text-orange-400">4.8★</h3>
+            <p class="text-gray-400 mt-1">Google Rating</p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl font-bold text-orange-400">20+</h3>
+            <p class="text-gray-400 mt-1">Burger Options</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="relative">
+
+        <div class="absolute -top-10 -left-10 w-44 h-44 bg-orange-500/30 rounded-full blur-3xl"></div>
+
+        <img
+          src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1200&auto=format&fit=crop"
+          class="rounded-[40px] glow"
+          alt="Burger"
+        />
+
+        <div class="absolute bottom-8 right-8 glass p-6 rounded-3xl border border-white/10">
+
+          <h3 class="text-4xl font-bold text-orange-400">
+            50% OFF
+          </h3>
+
+          <p class="text-sm mt-2 text-gray-300">
+            Opening Week Special Offer
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= HOT ITEMS ================= -->
+
+  <section id="menu" class="py-24 bg-[#121212]">
+
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <div class="text-center">
+  
+        <p class="text-orange-500 font-semibold tracking-[4px] uppercase">
+          Camp Bite Specials
+        </p>
+  
+        <h2 class="text-5xl font-bold mt-4">
+          Hot Selling Burgers
+        </h2>
+  
+        <p class="mt-5 text-gray-400 max-w-2xl mx-auto">
+          Loaded burgers with crispy patties, creamy sauces,
+          soft buns and explosive flavors.
+        </p>
+  
+      </div>
+  
+      <!-- Scrollable Cards -->
+      <div class="mt-20 overflow-x-auto scrollbar-hide">
+  
+        <div class="flex gap-8 min-w-max pb-4">
+  
+          <!-- Card -->
+          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+  
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000&auto=format&fit=crop"
+              class="w-full h-56 object-cover rounded-3xl"
+            />
+  
+            <h3 class="text-2xl font-bold mt-6">
+              Chicken Crunch Burger
+            </h3>
+  
+            <p class="text-gray-400 mt-3 text-sm leading-7">
+              Crispy chicken patty with signature mayo sauce and cheese.
+            </p>
+  
+            <div class="flex items-center justify-between mt-6">
+  
+              <h4 class="text-3xl font-bold text-orange-400">
+                ₹109
+              </h4>
+  
+              <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
+                +
+              </button>
+  
+            </div>
+  
+          </div>
+  
+          <!-- Card -->
+          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+  
+            <img
+              src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1000&auto=format&fit=crop"
+              class="w-full h-56 object-cover rounded-3xl"
+            />
+  
+            <h3 class="text-2xl font-bold mt-6">
+              Jumbo Cheese Burger
+            </h3>
+  
+            <p class="text-gray-400 mt-3 text-sm leading-7">
+              Double loaded burger with creamy cheese and spicy sauce.
+            </p>
+  
+            <div class="flex items-center justify-between mt-6">
+  
+              <h4 class="text-3xl font-bold text-orange-400">
+                ₹149
+              </h4>
+  
+              <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
+                +
+              </button>
+  
+            </div>
+  
+          </div>
+  
+          <!-- Card -->
+          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+  
+            <img
+              src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=1000&auto=format&fit=crop"
+              class="w-full h-56 object-cover rounded-3xl"
+            />
+  
+            <h3 class="text-2xl font-bold mt-6">
+              Veg Loaded Burger
+            </h3>
+  
+            <p class="text-gray-400 mt-3 text-sm leading-7">
+              Crispy veg patty with creamy burger dressing and lettuce.
+            </p>
+  
+            <div class="flex items-center justify-between mt-6">
+  
+              <h4 class="text-3xl font-bold text-orange-400">
+                ₹99
+              </h4>
+  
+              <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
+                +
+              </button>
+  
+            </div>
+  
+          </div>
+  
+          <!-- Card -->
+          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+  
+            <img
+              src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?q=80&w=1000&auto=format&fit=crop"
+              class="w-full h-56 object-cover rounded-3xl"
+            />
+  
+            <h3 class="text-2xl font-bold mt-6">
+              Fries Combo Meal
+            </h3>
+  
+            <p class="text-gray-400 mt-3 text-sm leading-7">
+              Burger + fries + cold drink combo for ultimate cravings.
+            </p>
+  
+            <div class="flex items-center justify-between mt-6">
+  
+              <h4 class="text-3xl font-bold text-orange-400">
+                ₹199
+              </h4>
+  
+              <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
+                +
+              </button>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+
+  <!-- ================= OFFER SECTION ================= -->
+
+  <section id="offers" class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="orange-gradient rounded-[50px] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+
+          <p class="uppercase tracking-[5px] text-sm font-semibold">
+            Opening Offer
+          </p>
+
+          <h2 class="text-5xl lg:text-7xl font-extrabold mt-6">
+            BUY 1<br/>
+            GET 1 FREE
+          </h2>
+
+          <p class="mt-8 text-lg leading-8 text-white/90">
+            Visit Camp Bite near Jaihind College and grab
+            the craziest burger deals in town.
+          </p>
+
+          <button class="mt-10 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition">
+            Grab Offer
+          </button>
+
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1200&auto=format&fit=crop"
+          class="rounded-[40px]"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+
+  <section id="about" class="py-24 bg-[#121212]">
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+
+      <img
+        src="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1200&auto=format&fit=crop"
+        class="rounded-[40px]"
+      />
+
+      <div>
+
+        <p class="uppercase tracking-[5px] text-orange-500 font-semibold">
+          About Camp Bite
+        </p>
+
+        <h2 class="text-5xl font-bold mt-5 leading-tight">
+          Built For Food Lovers & Gen Z Vibes
+        </h2>
+
+        <p class="mt-8 text-gray-400 leading-8">
+          Camp Bite is more than just burgers.
+          We are building a bold burger culture in Dhule
+          with loaded flavors, cinematic food reels,
+          premium quality ingredients and unforgettable experiences.
+        </p>
+
+        <div class="mt-10 space-y-5">
+
+          <div class="flex items-start gap-4">
+            <div class="text-orange-500 text-2xl">✔</div>
+            <p>Freshly prepared signature sauces daily</p>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="text-orange-500 text-2xl">✔</div>
+            <p>Soft buttery buns with crispy patties</p>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="text-orange-500 text-2xl">✔</div>
+            <p>Instagram-worthy aesthetic experience</p>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="text-orange-500 text-2xl">✔</div>
+            <p>Affordable pricing for students & food lovers</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer id="contact" class="bg-black py-20 border-t border-white/10">
+
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-14">
+
+      <div>
+
+        <h2 class="text-3xl font-bold">
+          CAMP BITE
+        </h2>
+
+        <p class="mt-6 text-gray-400 leading-8">
+          Dhule’s newest Gen Z burger destination serving
+          loaded burgers, fries and cinematic food experiences.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3 class="text-xl font-semibold mb-6">
+          Quick Links
+        </h3>
+
+        <ul class="space-y-4 text-gray-400">
+          <li>Home</li>
+          <li>Menu</li>
+          <li>Offers</li>
+          <li>About</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3 class="text-xl font-semibold mb-6">
+          Contact
+        </h3>
+
+        <ul class="space-y-4 text-gray-400">
+          <li>📍 Jaihind College Area, Dhule</li>
+          <li>📞 +91 9876543210</li>
+          <li>📧 campbite@gmail.com</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3 class="text-xl font-semibold mb-6">
+          Follow Us
+        </h3>
+      
+        <div class="flex gap-4">
+      
+          <!-- Instagram -->
+          <a href="#"
+            class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+      
+          <!-- YouTube -->
+          <a href="#"
+            class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+      
+          <!-- WhatsApp -->
+          <a href="#"
+            class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+      
+          <!-- Facebook -->
+          <a href="#"
+            class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+      
+        </div>
+      
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-16 pt-8 text-center text-gray-500">
+      © 2026 Camp Bite. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuClose = document.getElementById("mobile-menu-close");
+    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove("translate-x-full");
+      mobileMenuOverlay.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add("translate-x-full");
+      mobileMenuOverlay.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    mobileMenuBtn.addEventListener("click", openMobileMenu);
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+    mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+    mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
+  </script>
+</body>
+</html>
