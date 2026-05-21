@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Menu | Camp Bite</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height, 5.5rem);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #111111;
+      overflow-x: hidden;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .site-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .site-container { padding: 0 1.5rem; }
+    }
+
+    .orange-gradient {
+      background: linear-gradient(135deg, #ff7a00, #ff3d00);
+    }
+
+    .card-bg { background: #1a1a1a; }
+
+    .glow { box-shadow: 0 0 30px rgba(255, 119, 0, 0.25); }
+
+    .page-hero {
+      padding-top: calc(var(--header-height, 5.5rem) + 2rem);
+      padding-bottom: 2rem;
+      background:
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+        url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1600&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .menu-tab {
+      padding: 0.65rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: #d1d5db;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .menu-tab:hover {
+      border-color: rgba(255, 122, 0, 0.5);
+      color: #fb923c;
+    }
+
+    .menu-tab.active {
+      background: linear-gradient(135deg, #ff7a00, #ff3d00);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255, 90, 0, 0.35);
+    }
+
+    .menu-item {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(255, 90, 0, 0.15);
+    }
+
+    .menu-item.hidden-item {
+      display: none;
+    }
+
+    .category-badge {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #ember-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 25;
+      opacity: 0.5;
+      mix-blend-mode: screen;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .tabs-sticky {
+      position: sticky;
+      top: var(--header-height, 5.5rem);
+      z-index: 40;
+      background: rgba(17, 17, 17, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+
+<body class="text-white">
+
+  <canvas id="ember-canvas" aria-hidden="true"></canvas>
+
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
+    <div class="site-container py-3 md:py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-14 h-14 md:w-16 md:h-16 shrink-0">
+          <img src="logo-removebg-preview.png" alt="Camp Bite" class="w-full h-full object-contain"/>
+        </div>
+        <div class="leading-tight">
+          <h1 class="text-xl md:text-2xl font-bold tracking-wide">CAMP BITE</h1>
+          <p class="text-[10px] md:text-xs text-orange-300 tracking-[3px]">BURGER CAFE</p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-orange-400 transition">Home</a>
+        <a href="menu.html" class="text-orange-400 font-semibold">Full Menu</a>
+        <a href="index.html#offers" class="hover:text-orange-400 transition">Offers</a>
+        <a href="index.html#about" class="hover:text-orange-400 transition">About</a>
+        <a href="index.html#contact" class="hover:text-orange-400 transition">Contact</a>
+      </nav>
+
+      <a href="index.html#contact" class="hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+        Order Now
+      </a>
+
+      <button id="mobile-menu-btn" class="md:hidden text-2xl p-2" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></div>
+
+  <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#111111] border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div class="p-6 flex items-center justify-between border-b border-white/10">
+      <h2 class="text-lg font-semibold">Menu</h2>
+      <button id="mobile-menu-close" class="text-2xl leading-none" aria-label="Close">&times;</button>
+    </div>
+    <nav class="p-6 flex flex-col gap-5 text-base font-medium">
+      <a href="index.html" class="hover:text-orange-400 transition">Home</a>
+      <a href="menu.html" class="text-orange-400 font-semibold">Full Menu</a>
+      <a href="index.html#offers" class="hover:text-orange-400 transition">Offers</a>
+      <a href="index.html#about" class="hover:text-orange-400 transition">About</a>
+      <a href="index.html#contact" class="hover:text-orange-400 transition">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="site-container text-center reveal">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition mb-6">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      </a>
+      <p class="text-orange-500 font-semibold tracking-[4px] uppercase text-sm">Camp Bite Menu</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold mt-3">Full Menu</h1>
+      <p class="mt-5 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Burgers, crispy fries, chilled drinks & combos — everything in one place.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category tabs -->
+  <div class="tabs-sticky py-4">
+    <div class="site-container">
+      <div class="flex gap-3 overflow-x-auto pb-1 scrollbar-hide" role="tablist" id="menu-tabs">
+        <button class="menu-tab active" data-filter="all" role="tab">All</button>
+        <button class="menu-tab" data-filter="burgers" role="tab"><i class="fa-solid fa-burger mr-1"></i> Burgers</button>
+        <button class="menu-tab" data-filter="fries" role="tab"><i class="fa-solid fa-bacon mr-1"></i> Fries</button>
+        <button class="menu-tab" data-filter="drinks" role="tab"><i class="fa-solid fa-glass-water mr-1"></i> Cold Drinks</button>
+        <button class="menu-tab" data-filter="combos" role="tab"><i class="fa-solid fa-fire mr-1"></i> Combos</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="py-12 pb-24">
+    <div class="site-container">
+
+      <div class="mb-10 reveal">
+        <div class="flex items-center gap-4 mb-10">
+          <div class="h-12 w-12 rounded-2xl orange-gradient flex items-center justify-center text-xl">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold" id="menu-section-title">All Items</h2>
+            <p class="text-gray-400 text-sm mt-1" id="menu-section-desc">Burgers, fries, cold drinks & combos</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="burgers">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop" alt="Chicken Crunch Burger" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-orange-400 mt-5 inline-block">Burger</span>
+            <h3 class="text-xl font-bold mt-2">Chicken Crunch Burger</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Crispy chicken, mayo, cheese & lettuce.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹109</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="burgers">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop" alt="Jumbo Cheese Burger" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-orange-400 mt-5 inline-block">Burger</span>
+            <h3 class="text-xl font-bold mt-2">Jumbo Cheese Burger</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Double patty, melted cheese & spicy sauce.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹149</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="burgers">
+            <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=800&auto=format&fit=crop" alt="Veg Loaded Burger" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-orange-400 mt-5 inline-block">Burger · Veg</span>
+            <h3 class="text-xl font-bold mt-2">Veg Loaded Burger</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Crispy veg patty with creamy dressing.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹99</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="burgers">
+            <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0df?q=80&w=800&auto=format&fit=crop" alt="BBQ Smoke Burger" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-orange-400 mt-5 inline-block">Burger</span>
+            <h3 class="text-xl font-bold mt-2">BBQ Smoke Burger</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Smoky BBQ glaze, onion rings & cheddar.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹129</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="burgers">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=800&auto=format&fit=crop" alt="Double Decker Burger" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-orange-400 mt-5 inline-block">Burger · Bestseller</span>
+            <h3 class="text-xl font-bold mt-2">Double Decker Burger</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Triple layer stack — chicken, cheese & sauce.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹179</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="burgers">
+            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800&auto=format&fit=crop" alt="Camp Bite Special" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-orange-400 mt-5 inline-block">Burger · Signature</span>
+            <h3 class="text-xl font-bold mt-2">Camp Bite Special</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">House secret sauce, double cheese & jalapeños.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹199</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <!-- Fries -->
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="fries">
+            <img src="https://images.unsplash.com/photo-1573080496219-4fa972f9490c?q=80&w=800&auto=format&fit=crop" alt="Classic Fries" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-yellow-400 mt-5 inline-block">Fries</span>
+            <h3 class="text-xl font-bold mt-2">Classic Salted Fries</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Golden crispy fries with a pinch of salt.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹59</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="fries">
+            <img src="https://images.unsplash.com/photo-1630431341973-02d69aedca89?q=80&w=800&auto=format&fit=crop" alt="Peri Peri Fries" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-yellow-400 mt-5 inline-block">Fries</span>
+            <h3 class="text-xl font-bold mt-2">Peri Peri Fries</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Spicy peri peri seasoning & herbs.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹79</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="fries">
+            <img src="https://images.unsplash.com/photo-1639024471286-0355458a4e24?q=80&w=800&auto=format&fit=crop" alt="Cheese Loaded Fries" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-yellow-400 mt-5 inline-block">Fries</span>
+            <h3 class="text-xl font-bold mt-2">Cheese Loaded Fries</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Melted cheese sauce & spring onions.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹99</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="fries">
+            <img src="https://images.unsplash.com/photo-1630384060420-caa92ff3e0f0?q=80&w=800&auto=format&fit=crop" alt="BBQ Fries" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-yellow-400 mt-5 inline-block">Fries</span>
+            <h3 class="text-xl font-bold mt-2">BBQ Fries</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Smoky BBQ drizzle & crispy onions.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹89</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <!-- Cold drinks -->
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?q=80&w=800&auto=format&fit=crop" alt="Coke" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-cyan-400 mt-5 inline-block">Cold Drink</span>
+            <h3 class="text-xl font-bold mt-2">Coke (300ml)</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Chilled classic cola.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹40</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1625772299848-391b6a87bb7b?q=80&w=800&auto=format&fit=crop" alt="Sprite" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-cyan-400 mt-5 inline-block">Cold Drink</span>
+            <h3 class="text-xl font-bold mt-2">Sprite (300ml)</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Refreshing lemon-lime fizz.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹40</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4c1d503a?q=80&w=800&auto=format&fit=crop" alt="Cold Coffee" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-cyan-400 mt-5 inline-block">Cold Drink</span>
+            <h3 class="text-xl font-bold mt-2">Cold Coffee</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Iced coffee with cream & chocolate drizzle.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹69</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1622597467836-f3285f2133b6?q=80&w=800&auto=format&fit=crop" alt="Mango Shake" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-cyan-400 mt-5 inline-block">Cold Drink</span>
+            <h3 class="text-xl font-bold mt-2">Mango Shake</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Thick Alphonso mango blend.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹79</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=800&auto=format&fit=crop" alt="Oreo Shake" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-cyan-400 mt-5 inline-block">Cold Drink</span>
+            <h3 class="text-xl font-bold mt-2">Oreo Shake</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Creamy milkshake loaded with Oreo crumbs.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹89</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop" alt="Lemon Mojito" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-cyan-400 mt-5 inline-block">Cold Drink</span>
+            <h3 class="text-xl font-bold mt-2">Lemon Mojito</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Mint, lime & soda — perfectly refreshing.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹59</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <!-- Combos -->
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="combos">
+            <img src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?q=80&w=800&auto=format&fit=crop" alt="Fries Combo Meal" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-red-400 mt-5 inline-block">Combo</span>
+            <h3 class="text-xl font-bold mt-2">Fries Combo Meal</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Any burger + fries + cold drink.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹199</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="combos">
+            <img src="https://images.unsplash.com/photo-1594212699903-9628b478710e?q=80&w=800&auto=format&fit=crop" alt="Buddy Combo" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-red-400 mt-5 inline-block">Combo</span>
+            <h3 class="text-xl font-bold mt-2">Buddy Combo (2 Burgers)</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">2 burgers + large fries + 2 drinks.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹349</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+          <article class="menu-item card-bg rounded-[28px] p-5 border border-white/5 glow" data-category="combos">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=800&auto=format&fit=crop" alt="Camp Feast Combo" class="w-full h-48 object-cover rounded-2xl"/>
+            <span class="category-badge text-red-400 mt-5 inline-block">Combo · Best Value</span>
+            <h3 class="text-xl font-bold mt-2">Camp Feast Combo</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-6">Special burger + cheese fries + shake.</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-2xl font-bold text-orange-400">₹249</span>
+              <button class="orange-gradient h-11 w-11 rounded-full text-lg font-bold" aria-label="Add">+</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <p id="no-results" class="hidden text-center text-gray-400 py-16 text-lg">
+        No items in this category right now.
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="bg-black py-12 border-t border-white/10">
+    <div class="site-container text-center">
+      <a href="index.html" class="orange-gradient inline-flex px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+        <i class="fa-solid fa-house mr-2"></i> Back to Home
+      </a>
+      <p class="mt-8 text-gray-500 text-sm">© 2026 Camp Bite. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function setHeaderHeight() {
+      const header = document.getElementById("site-header");
+      if (header) {
+        document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+      }
+    }
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
+    window.addEventListener("load", setHeaderHeight);
+
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuClose = document.getElementById("mobile-menu-close");
+    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove("translate-x-full");
+      mobileMenuOverlay.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+    function closeMobileMenu() {
+      mobileMenu.classList.add("translate-x-full");
+      mobileMenuOverlay.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+    mobileMenuBtn.addEventListener("click", openMobileMenu);
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+    mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+
+    const tabs = document.querySelectorAll(".menu-tab");
+    const items = document.querySelectorAll(".menu-item");
+    const noResults = document.getElementById("no-results");
+    const sectionTitle = document.getElementById("menu-section-title");
+    const sectionDesc = document.getElementById("menu-section-desc");
+
+    const categoryLabels = {
+      all: ["All Items", "Burgers, fries, cold drinks & combos"],
+      burgers: ["Burgers", "Loaded patties, soft buns & signature sauces"],
+      fries: ["Fries", "Golden, spicy & cheese-loaded"],
+      drinks: ["Cold Drinks", "Shakes, sodas & refreshing sips"],
+      combos: ["Combos", "Best value meal deals"],
+    };
+
+    function filterMenu(category) {
+      let visible = 0;
+      items.forEach((item) => {
+        const match = category === "all" || item.dataset.category === category;
+        item.classList.toggle("hidden-item", !match);
+        if (match) visible++;
+      });
+      const labels = categoryLabels[category] || categoryLabels.all;
+      sectionTitle.textContent = labels[0];
+      sectionDesc.textContent = labels[1];
+      noResults.classList.toggle("hidden", visible > 0);
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        filterMenu(tab.dataset.filter);
+      });
+    });
+
+    const urlCategory = new URLSearchParams(window.location.search).get("cat");
+    if (urlCategory) {
+      const matchTab = document.querySelector(`.menu-tab[data-filter="${urlCategory}"]`);
+      if (matchTab) {
+        tabs.forEach((t) => t.classList.remove("active"));
+        matchTab.classList.add("active");
+        filterMenu(urlCategory);
+      }
+    }
+
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReducedMotion) {
+      const canvas = document.getElementById("ember-canvas");
+      const ctx = canvas.getContext("2d");
+      let w, h, particles = [];
+      const count = Math.min(60, Math.floor(window.innerWidth / 18));
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      function init() {
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vy: -0.5 - Math.random() * 2,
+          vx: (Math.random() - 0.5) * 0.8,
+          life: Math.random(),
+          size: 2 + Math.random() * 3,
+        }));
+      }
+      function loop() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= 0.008;
+          if (p.life <= 0 || p.y < 0) {
+            p.x = Math.random() * w;
+            p.y = h + 10;
+            p.life = 1;
+          }
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2);
+          g.addColorStop(0, `rgba(255,${140 + Math.random() * 80},0,${p.life * 0.7})`);
+          g.addColorStop(1, "transparent");
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        requestAnimationFrame(loop);
+      }
+      resize();
+      init();
+      loop();
+      window.addEventListener("resize", () => { resize(); init(); });
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
