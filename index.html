@@ -137,17 +137,127 @@
       border-left: 3px solid #ff7a00;
       padding-left: 0.75rem;
     }
+
+    /* —— Fire ember / spark overlay —— */
+    #ember-canvas{
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 25;
+      opacity: 0.65;
+      mix-blend-mode: screen;
+    }
+
+    .ember-glow{
+      position: fixed;
+      bottom: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(140vw, 900px);
+      height: 45vh;
+      background: radial-gradient(
+        ellipse at center bottom,
+        rgba(255, 90, 0, 0.18) 0%,
+        rgba(255, 50, 0, 0.06) 40%,
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: 1;
+      animation: emberPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes emberPulse{
+      0%, 100%{ opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50%{ opacity: 1; transform: translateX(-50%) scale(1.05); }
+    }
+
+    /* —— Scroll reveal —— */
+    .reveal{
+      opacity: 0;
+      transform: translateY(48px);
+      transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.reveal-left{
+      transform: translateX(-56px) translateY(12px);
+    }
+
+    .reveal.reveal-right{
+      transform: translateX(56px) translateY(12px);
+    }
+
+    .reveal.reveal-scale{
+      transform: scale(0.92) translateY(24px);
+    }
+
+    .reveal.reveal-fade{
+      transform: none;
+    }
+
+    .reveal.is-visible{
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+
+    .reveal-stagger > .reveal-child{
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      transition:
+        opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-stagger.is-visible > .reveal-child{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .reveal-stagger.is-visible > .reveal-child:nth-child(1){ transition-delay: 0.05s; }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(2){ transition-delay: 0.15s; }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(3){ transition-delay: 0.25s; }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(4){ transition-delay: 0.35s; }
+
+    .parallax-img{
+      transition: transform 0.2s ease-out;
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal,
+      .reveal-stagger > .reveal-child{
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      #ember-canvas,
+      .ember-glow{
+        display: none;
+      }
+
+      .parallax-img{
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 
 <body class="text-white">
+
+  <div class="ember-glow" aria-hidden="true"></div>
+  <canvas id="ember-canvas" aria-hidden="true"></canvas>
 
   <!-- ================= NAVBAR ================= -->
 
   <header id="site-header" class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
     <div class="site-container py-3 md:py-4 flex items-center justify-between">
 
-      <div class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-3">
         <div class="w-14 h-14 md:w-20 md:h-20 shrink-0">
           <img
             src="logo-removebg-preview.png"
@@ -163,7 +273,7 @@
             BURGER CAFE
           </p>
         </div>
-      </div>
+      </a>
 
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
         <a href="#home" class="nav-link hover:text-orange-400 transition">Home</a>
@@ -214,7 +324,7 @@
 
     <div class="site-container grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
 
-      <div>
+      <div class="reveal reveal-left">
 
         <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange-500/20 border border-orange-400/20 mb-6">
           <span>🔥</span>
@@ -243,7 +353,7 @@
             Explore Menu
           </button>
 
-          <button class="border border-white/20 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition">
+          <button src="https://www.instagram.com/camp_bite/?utm_source=ig_web_button_share_sheet" class="border border-white/20 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition">
             Watch Reel
           </button>
         </div>
@@ -269,13 +379,14 @@
 
       </div>
 
-      <div class="relative">
+      <div class="relative reveal reveal-right">
 
         <div class="absolute -top-10 -left-10 w-44 h-44 bg-orange-500/30 rounded-full blur-3xl"></div>
 
         <img
           src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1200&auto=format&fit=crop"
-          class="rounded-[40px] glow"
+          class="rounded-[40px] glow parallax-img"
+          data-parallax="0.08"
           alt="Burger"
         />
 
@@ -303,7 +414,7 @@
 
     <div class="site-container">
   
-      <div class="text-center">
+      <div class="text-center reveal reveal-fade">
   
         <p class="text-orange-500 font-semibold tracking-[4px] uppercase">
           Camp Bite Specials
@@ -323,10 +434,10 @@
       <!-- Scrollable Cards -->
       <div class="mt-20 overflow-x-auto scrollbar-hide">
   
-        <div class="flex gap-8 min-w-max pb-4">
+        <div class="flex gap-8 min-w-max pb-4 reveal-stagger">
   
           <!-- Card -->
-          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000&auto=format&fit=crop"
@@ -356,7 +467,7 @@
           </div>
   
           <!-- Card -->
-          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1000&auto=format&fit=crop"
@@ -386,7 +497,7 @@
           </div>
   
           <!-- Card -->
-          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=1000&auto=format&fit=crop"
@@ -416,7 +527,7 @@
           </div>
   
           <!-- Card -->
-          <div class="card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
+          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[320px] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?q=80&w=1000&auto=format&fit=crop"
@@ -448,6 +559,14 @@
         </div>
   
       </div>
+
+      <div class="text-center mt-14 reveal reveal-fade">
+        <a href="menu.html" class="orange-gradient inline-flex items-center gap-3 px-10 py-4 rounded-full text-lg font-semibold hover:scale-105 transition">
+          View Full Menu
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <p class="text-gray-500 text-sm mt-4">Burgers · Fries · Cold Drinks · Combos</p>
+      </div>
   
     </div>
   
@@ -459,7 +578,7 @@
 
     <div class="site-container">
 
-      <div class="orange-gradient rounded-[50px] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="orange-gradient rounded-[50px] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center reveal reveal-scale">
 
         <div>
 
@@ -485,7 +604,9 @@
 
         <img
           src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1200&auto=format&fit=crop"
-          class="rounded-[40px]"
+          class="rounded-[40px] parallax-img"
+          data-parallax="0.05"
+          alt="Burger offer"
         />
 
       </div>
@@ -502,10 +623,12 @@
 
       <img
         src="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1200&auto=format&fit=crop"
-        class="rounded-[40px]"
+        class="rounded-[40px] reveal reveal-left parallax-img"
+        data-parallax="0.05"
+        alt="Camp Bite interior"
       />
 
-      <div>
+      <div class="reveal reveal-right">
 
         <p class="uppercase tracking-[5px] text-orange-500 font-semibold">
           About Camp Bite
@@ -556,9 +679,9 @@
 
   <footer id="contact" class="bg-black py-20 border-t border-white/10">
 
-    <div class="site-container grid md:grid-cols-2 lg:grid-cols-4 gap-14">
+    <div class="site-container grid md:grid-cols-2 lg:grid-cols-4 gap-14 reveal-stagger">
 
-      <div>
+      <div class="reveal-child">
 
         <h2 class="text-3xl font-bold">
           CAMP BITE
@@ -571,7 +694,7 @@
 
       </div>
 
-      <div>
+      <div class="reveal-child">
 
         <h3 class="text-xl font-semibold mb-6">
           Quick Links
@@ -586,7 +709,7 @@
 
       </div>
 
-      <div>
+      <div class="reveal-child">
 
         <h3 class="text-xl font-semibold mb-6">
           Contact
@@ -609,7 +732,7 @@
 
       </div>
 
-      <div>
+      <div class="reveal-child">
 
         <h3 class="text-xl font-semibold mb-6">
           Follow Us
@@ -618,25 +741,25 @@
         <div class="flex gap-4">
       
           <!-- Instagram -->
-          <a href="#"
+          <a href="https://www.instagram.com/camp_bite/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer"
             class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
             <i class="fab fa-instagram"></i>
           </a>
       
           <!-- YouTube -->
-          <a href="#"
+          <a href="https://www.youtube.com/@campbiteofficial" target="_blank" rel="noopener noreferrer"
             class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
             <i class="fab fa-youtube"></i>
           </a>
       
           <!-- WhatsApp -->
-          <a href="#"
+          <a href="https://wa.me/918668806938" target="_blank" rel="noopener noreferrer"
             class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
             <i class="fab fa-whatsapp"></i>
           </a>
       
           <!-- Facebook -->
-          <a href="#"
+          <a href="https://www.facebook.com/profile.php?id=100088440840921" target="_blank" rel="noopener noreferrer"
             class="h-12 w-12 rounded-full orange-gradient flex items-center justify-center text-xl hover:scale-110 transition">
             <i class="fab fa-facebook-f"></i>
           </a>
@@ -806,6 +929,186 @@
     }, { passive: true });
     window.addEventListener("resize", updateActiveOnScroll);
     window.addEventListener("load", updateActiveOnScroll);
+
+    /* —— Fire ember / spark particles —— */
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!prefersReducedMotion) {
+      const canvas = document.getElementById("ember-canvas");
+      const ctx = canvas.getContext("2d");
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      const PARTICLE_COUNT = Math.min(90, Math.floor(window.innerWidth / 14));
+
+      const palette = [
+        { r: 255, g: 180, b: 50 },
+        { r: 255, g: 120, b: 30 },
+        { r: 255, g: 60, b: 0 },
+        { r: 255, g: 220, b: 100 },
+      ];
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      function randomBetween(min, max) {
+        return min + Math.random() * (max - min);
+      }
+
+      function createParticle(isSpark) {
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        return {
+          x: randomBetween(0, width),
+          y: height + randomBetween(0, 80),
+          vx: randomBetween(-0.6, 0.6),
+          vy: randomBetween(-2.8, -0.8),
+          size: isSpark ? randomBetween(1, 2.5) : randomBetween(2, 5),
+          life: randomBetween(0.4, 1),
+          decay: randomBetween(0.004, 0.012),
+          color,
+          spark: isSpark,
+          flicker: randomBetween(0, Math.PI * 2),
+        };
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          const p = createParticle(Math.random() > 0.75);
+          p.y = randomBetween(0, height);
+          p.life = randomBetween(0.2, 1);
+          particles.push(p);
+        }
+      }
+
+      function drawParticle(p) {
+        const alpha = p.life * (p.spark ? 0.95 : 0.7);
+        const flicker = 0.7 + 0.3 * Math.sin(p.flicker);
+        const { r, g, b } = p.color;
+
+        ctx.beginPath();
+        const gradient = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.size * (p.spark ? 4 : 3)
+        );
+        gradient.addColorStop(0, `rgba(${r},${g},${b},${alpha * flicker})`);
+        gradient.addColorStop(0.4, `rgba(${r},${g},${b},${alpha * 0.5})`);
+        gradient.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = gradient;
+        ctx.arc(p.x, p.y, p.size * (p.spark ? 3 : 2), 0, Math.PI * 2);
+        ctx.fill();
+
+        if (p.spark && p.life > 0.5) {
+          ctx.strokeStyle = `rgba(255,240,180,${alpha * 0.6})`;
+          ctx.lineWidth = 0.8;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.x - p.vx * 6, p.y - p.vy * 6);
+          ctx.stroke();
+        }
+      }
+
+      function updateParticles() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.x += p.vx + Math.sin(p.flicker) * 0.15;
+          p.y += p.vy;
+          p.flicker += 0.08;
+          p.life -= p.decay;
+          p.vy -= 0.008;
+
+          if (p.life <= 0 || p.y < -20) {
+            particles[i] = createParticle(Math.random() > 0.7);
+          } else {
+            drawParticle(p);
+          }
+        }
+      }
+
+      let rafId;
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        updateParticles();
+        rafId = requestAnimationFrame(animate);
+      }
+
+      resizeCanvas();
+      initParticles();
+      animate();
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        initParticles();
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          cancelAnimationFrame(rafId);
+        } else {
+          animate();
+        }
+      });
+    }
+
+    /* —— Scroll reveal & parallax —— */
+    const revealElements = document.querySelectorAll(
+      ".reveal, .reveal-stagger"
+    );
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.12,
+      }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+
+    const parallaxEls = document.querySelectorAll(".parallax-img[data-parallax]");
+    let ticking = false;
+
+    function updateParallax() {
+      parallaxEls.forEach((el) => {
+        const speed = parseFloat(el.dataset.parallax) || 0.05;
+        const rect = el.getBoundingClientRect();
+        const centerOffset =
+          rect.top + rect.height / 2 - window.innerHeight / 2;
+        const offset = centerOffset * speed * -1;
+        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      });
+      ticking = false;
+    }
+
+    if (!prefersReducedMotion && parallaxEls.length) {
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+      updateParallax();
+    } else {
+      revealElements.forEach((el) => el.classList.add("is-visible"));
+    }
   </script>
 </body>
 </html>
