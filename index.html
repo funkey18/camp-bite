@@ -13,6 +13,7 @@
   <meta name="googlebot" content="index, follow" />
   <meta name="google-site-verification" content="22sREF8FR52a5dIGxsvBCZcU9Cj_UAxZYENDPvGdrik" />
   <link rel="canonical" href="https://campbite.netlify.app/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://campbite.netlify.app/sitemap.xml" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://campbite.netlify.app/logo-removebg-preview.png" sizes="32x32" />
@@ -321,7 +322,7 @@
   <header id="site-header" class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
     <div class="site-container py-3 md:py-4 flex items-center justify-between">
 
-      <a href="index.html" class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3" aria-label="Camp Bite home">
         <div class="w-14 h-14 md:w-20 md:h-20 shrink-0">
           <img
             src="logo-removebg-preview.png"
@@ -342,6 +343,7 @@
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
         <a href="#home" class="nav-link hover:text-orange-400 transition">Home</a>
         <a href="#menu" class="nav-link hover:text-orange-400 transition">Menu</a>
+        <a href="/menu.html" class="nav-link hover:text-orange-400 transition">Full Menu</a>
         <a href="#offers" class="nav-link hover:text-orange-400 transition">Offers</a>
         <a href="#about" class="nav-link hover:text-orange-400 transition">About</a>
         <a href="#contact" class="nav-link hover:text-orange-400 transition">Contact</a>
@@ -373,6 +375,7 @@
     <nav class="p-6 flex flex-col gap-5 text-base font-medium">
       <a href="#home" class="nav-link mobile-link hover:text-orange-400 transition">Home</a>
       <a href="#menu" class="nav-link mobile-link hover:text-orange-400 transition">Menu</a>
+      <a href="/menu.html" class="nav-link mobile-link hover:text-orange-400 transition">Full Menu</a>
       <a href="#offers" class="nav-link mobile-link hover:text-orange-400 transition">Offers</a>
       <a href="#about" class="nav-link mobile-link hover:text-orange-400 transition">About</a>
       <a href="#contact" class="nav-link mobile-link hover:text-orange-400 transition">Contact</a>
@@ -765,10 +768,12 @@
         </h3>
 
         <ul class="space-y-4 text-gray-400">
-          <li>Home</li>
-          <li>Menu</li>
-          <li>Offers</li>
-          <li>About</li>
+          <li><a href="/" class="hover:text-orange-400 transition">Home</a></li>
+          <li><a href="/menu.html" class="hover:text-orange-400 transition">Full Menu</a></li>
+          <li><a href="/#menu" class="hover:text-orange-400 transition">Popular Items</a></li>
+          <li><a href="/#offers" class="hover:text-orange-400 transition">Offers</a></li>
+          <li><a href="/#about" class="hover:text-orange-400 transition">About Camp Bite</a></li>
+          <li><a href="/#contact" class="hover:text-orange-400 transition">Contact</a></li>
         </ul>
 
       </div>
@@ -834,8 +839,12 @@
 
     </div>
 
-    <div class="border-t border-white/10 mt-16 pt-8 text-center text-gray-500">
-      © 2026 Camp Bite. All Rights Reserved.
+    <div class="border-t border-white/10 mt-16 pt-8 text-center text-gray-500 space-y-3">
+      <p class="text-sm text-gray-400 max-w-2xl mx-auto px-4">
+        Camp Bite — burger cafe in Dhule, Maharashtra. Loaded burgers, fries, and combos near Jaihind College.
+        Visit us or <a href="/menu.html" class="text-orange-400 hover:underline">view the full menu</a>.
+      </p>
+      <p>© 2026 Camp Bite. All Rights Reserved.</p>
     </div>
 
   </footer>
