@@ -1,9 +1,20 @@
+# Camp Bite — Netlify deploy config
+# Preferred (canonical) domain: https://campbite.netlify.app/
+
 [build]
   publish = "."
+
+# --- Canonical redirects: one URL for Google (HTTPS + non-www) ---
 
 [[redirects]]
   from = "http://campbite.netlify.app/*"
   to = "https://campbite.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://campbite.netlify.app"
+  to = "https://campbite.netlify.app/"
   status = 301
   force = true
 
@@ -14,7 +25,27 @@
   force = true
 
 [[redirects]]
+  from = "https://www.campbite.netlify.app"
+  to = "https://campbite.netlify.app/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "http://www.campbite.netlify.app/*"
   to = "https://campbite.netlify.app/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "http://www.campbite.netlify.app"
+  to = "https://campbite.netlify.app/"
+  status = 301
+  force = true
+
+# Optional: security / SEO headers (canonical is also in each page <link rel="canonical">)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
