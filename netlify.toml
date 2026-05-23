@@ -44,6 +44,16 @@
 
 # Optional: security / SEO headers (canonical is also in each page <link rel="canonical">)
 [[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
