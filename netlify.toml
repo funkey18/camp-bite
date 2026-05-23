@@ -1,0 +1,20 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "http://campbite.netlify.app/*"
+  to = "https://campbite.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.campbite.netlify.app/*"
+  to = "https://campbite.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.campbite.netlify.app/*"
+  to = "https://campbite.netlify.app/:splat"
+  status = 301
+  force = true

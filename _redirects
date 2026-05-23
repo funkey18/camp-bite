@@ -1,0 +1,4 @@
+# Force HTTPS and canonical host (non-www)
+http://campbite.netlify.app/*     https://campbite.netlify.app/:splat    301!
+http://www.campbite.netlify.app/* https://campbite.netlify.app/:splat    301!
+https://www.campbite.netlify.app/* https://campbite.netlify.app/:splat  301!
