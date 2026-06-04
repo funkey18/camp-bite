@@ -3,6 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style id="critical-css">
+    html{background:#111}
+    body{margin:0;background:#111;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+    a{color:#e5e7eb;text-decoration:none}
+    a:hover{color:#fb923c}
+    #site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(0,0,0,.85);border-bottom:1px solid rgba(255,255,255,.1)}
+    #site-header .site-container{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;max-width:80rem;margin:0 auto}
+    #main-nav,.header-order-btn{display:none!important}
+    #mobile-menu-btn{display:block;background:0;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
+    #mobile-menu,#mobile-menu-overlay{display:none!important}
+    #mobile-menu.is-open{display:flex!important;flex-direction:column}
+    #mobile-menu-overlay.is-open{display:block!important}
+    .reveal,.reveal-child{opacity:1!important;transform:none!important}
+    @media(min-width:768px){
+      #main-nav{display:flex!important;align-items:center;gap:2rem;font-size:.875rem}
+      .header-order-btn{display:inline-flex!important}
+      #mobile-menu-btn{display:none!important}
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Camp Bite | Best Cafe &amp; Burgers in Dhule &amp; Shirpur</title>
 
   <!-- Primary SEO -->
@@ -186,12 +206,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all';document.documentElement.classList.add('fontawesome-ready')"/>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/></noscript>
-
-  <script src="https://cdn.tailwindcss.com" defer></script>
 
   <style>
     *,
@@ -214,8 +233,20 @@
       overflow-x: clip;
     }
 
+    #mobile-menu-btn .menu-icon-fa{
+      display: none;
+    }
+
+    .fontawesome-ready #mobile-menu-btn .menu-icon-fallback{
+      display: none;
+    }
+
+    .fontawesome-ready #mobile-menu-btn .menu-icon-fa{
+      display: inline-block;
+    }
+
     body{
-      font-family: "Poppins", sans-serif;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       background: #111111;
       overflow-x: clip;
       margin: 0;
@@ -542,7 +573,7 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-10 text-sm font-medium" aria-label="Main navigation">
+      <nav id="main-nav" class="hidden md:flex items-center gap-10 text-sm font-medium" aria-label="Main navigation">
         <a href="#home" class="nav-link hover:text-orange-400 transition">Camp Bite home</a>
         <a href="#menu" class="nav-link hover:text-orange-400 transition">Trending burgers</a>
         <a href="/menu.html" class="nav-link hover:text-orange-400 transition">Browse Menu</a>
@@ -551,12 +582,13 @@
         <a href="#locations" class="nav-link hover:text-orange-400 transition">Store Locations</a>
       </nav>
 
-      <button class="hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+      <button type="button" class="header-order-btn hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
         Order Now
       </button>
 
       <button id="mobile-menu-btn" type="button" class="md:hidden text-2xl p-2 shrink-0 ml-2" aria-label="Open menu">
-        <i class="fa-solid fa-bars"></i>
+        <span class="menu-icon-fallback" aria-hidden="true">☰</span>
+        <i class="fa-solid fa-bars menu-icon-fa" aria-hidden="true"></i>
       </button>
     </div>
   </header>
@@ -565,7 +597,8 @@
 
   <aside
     id="mobile-menu"
-    class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#111111] border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 md:hidden"
+    class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#111111] border-l border-white/10 z-50 flex flex-col translate-x-full transition-transform duration-300 md:hidden"
+    aria-hidden="true"
   >
     <div class="p-6 flex items-center justify-between border-b border-white/10">
       <p class="text-lg font-semibold">Site Navigation</p>
@@ -1264,13 +1297,19 @@
 
     function openMobileMenu() {
       mobileMenu.classList.remove("translate-x-full");
+      mobileMenu.classList.add("is-open");
+      mobileMenu.setAttribute("aria-hidden", "false");
       mobileMenuOverlay.classList.remove("hidden");
+      mobileMenuOverlay.classList.add("is-open");
       document.body.style.overflow = "hidden";
     }
 
     function closeMobileMenu() {
       mobileMenu.classList.add("translate-x-full");
+      mobileMenu.classList.remove("is-open");
+      mobileMenu.setAttribute("aria-hidden", "true");
       mobileMenuOverlay.classList.add("hidden");
+      mobileMenuOverlay.classList.remove("is-open");
       document.body.style.overflow = "";
     }
 
@@ -1280,7 +1319,7 @@
     mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
 
     const navLinks = document.querySelectorAll(".nav-link");
-    const sectionIds = ["home", "menu", "offers", "about", "locations", "local-seo", "faq", "contact"];
+    const sectionIds = ["home", "menu", "offers", "about", "locations", "faq", "contact"];
 
     function getSections() {
       return sectionIds
