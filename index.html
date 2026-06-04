@@ -186,14 +186,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/></noscript>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
 
   <style>
     *,
@@ -419,6 +417,26 @@
       }
     }
 
+    .faq-item summary{
+      list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display: none;
+    }
+
+    .faq-item[open] summary{
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item summary{
+      list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display: none;
+    }
+
     .menu-carousel-wrap{
       width: 100%;
       max-width: 100%;
@@ -527,10 +545,10 @@
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium" aria-label="Main navigation">
         <a href="#home" class="nav-link hover:text-orange-400 transition">Homepage</a>
         <a href="#menu" class="nav-link hover:text-orange-400 transition">Popular Burgers</a>
-        <a href="/menu.html" class="nav-link hover:text-orange-400 transition">Full Menu</a>
+        <a href="/menu.html" class="nav-link hover:text-orange-400 transition">Browse Menu</a>
         <a href="#offers" class="nav-link hover:text-orange-400 transition">Deals &amp; Offers</a>
         <a href="#about" class="nav-link hover:text-orange-400 transition">Our Story</a>
-        <a href="#locations" class="nav-link hover:text-orange-400 transition">Our Outlets</a>
+        <a href="#locations" class="nav-link hover:text-orange-400 transition">Store Locations</a>
       </nav>
 
       <button class="hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
@@ -550,7 +568,7 @@
     class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#111111] border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 md:hidden"
   >
     <div class="p-6 flex items-center justify-between border-b border-white/10">
-      <h2 class="text-lg font-semibold">Site Navigation</h2>
+      <p class="text-lg font-semibold">Site Navigation</p>
       <button id="mobile-menu-close" class="text-2xl leading-none" aria-label="Close menu">
         &times;
       </button>
@@ -559,10 +577,10 @@
     <nav class="p-6 flex flex-col gap-5 text-base font-medium" aria-label="Mobile navigation">
       <a href="#home" class="nav-link mobile-link hover:text-orange-400 transition">Homepage</a>
       <a href="#menu" class="nav-link mobile-link hover:text-orange-400 transition">Popular Burgers</a>
-      <a href="/menu.html" class="nav-link mobile-link hover:text-orange-400 transition">Full Menu</a>
+      <a href="/menu.html" class="nav-link mobile-link hover:text-orange-400 transition">See All Dishes</a>
       <a href="#offers" class="nav-link mobile-link hover:text-orange-400 transition">Deals &amp; Offers</a>
       <a href="#about" class="nav-link mobile-link hover:text-orange-400 transition">Our Story</a>
-      <a href="#locations" class="nav-link mobile-link hover:text-orange-400 transition">Our Outlets</a>
+      <a href="#locations" class="nav-link mobile-link hover:text-orange-400 transition">Find Stores</a>
       <button class="orange-gradient mt-3 px-6 py-3 rounded-full font-semibold">
         Order Now
       </button>
@@ -595,11 +613,8 @@
         </h1>
 
         <p class="mt-8 text-lg text-gray-300 leading-8 max-w-xl">
-          Looking for the <strong class="text-white font-medium">best cafe in Dhule</strong> or
-          <strong class="text-white font-medium">best cafe in Shirpur</strong>? Camp Bite is your go-to burger cafe
-          with loaded patties, crispy fries, chilled drinks, and combos — at
-          <strong class="text-white font-medium">Jaihind College, Dhule</strong> and
-          <strong class="text-white font-medium">Karvand Naka, Shirpur</strong>.
+          Looking for the best cafe in Dhule or best cafe in Shirpur? Camp Bite is your go-to burger cafe
+          with loaded patties, crispy fries, chilled drinks, and combos — at Jaihind College, Dhule and Karvand Naka, Shirpur.
         </p>
 
         <div class="mt-10 flex flex-wrap gap-5">
@@ -616,17 +631,17 @@
         <div class="mt-12 flex gap-10">
 
           <div>
-            <h3 class="text-3xl font-bold text-orange-400">5K+</h3>
+            <p class="text-3xl font-bold text-orange-400">5K+</p>
             <p class="text-gray-400 mt-1">Happy Customers</p>
           </div>
 
           <div>
-            <h3 class="text-3xl font-bold text-orange-400">4.8★</h3>
+            <p class="text-3xl font-bold text-orange-400">4.8★</p>
             <p class="text-gray-400 mt-1">Google Rating</p>
           </div>
 
           <div>
-            <h3 class="text-3xl font-bold text-orange-400">20+</h3>
+            <p class="text-3xl font-bold text-orange-400">20+</p>
             <p class="text-gray-400 mt-1">Burger Options</p>
           </div>
 
@@ -652,9 +667,9 @@
 
         <div class="absolute bottom-8 right-8 glass p-6 rounded-3xl border border-white/10">
 
-          <h3 class="text-4xl font-bold text-orange-400">
+          <p class="text-4xl font-bold text-orange-400">
             50% OFF
-          </h3>
+          </p>
 
           <p class="text-sm mt-2 text-gray-300">
             Opening Week Special Offer
@@ -709,9 +724,9 @@
               decoding="async"
             />
   
-            <h3 class="text-2xl font-bold mt-6">
+            <p class="text-2xl font-bold mt-6">
               Chicken Crunch Burger
-            </h3>
+            </p>
   
             <p class="text-gray-400 mt-3 text-sm leading-7">
               Crispy chicken patty with signature mayo sauce and cheese.
@@ -719,9 +734,9 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <h4 class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-orange-400">
                 ₹109
-              </h4>
+              </span>
   
               <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
                 +
@@ -744,9 +759,9 @@
               decoding="async"
             />
   
-            <h3 class="text-2xl font-bold mt-6">
+            <p class="text-2xl font-bold mt-6">
               Jumbo Cheese Burger
-            </h3>
+            </p>
   
             <p class="text-gray-400 mt-3 text-sm leading-7">
               Double loaded burger with creamy cheese and spicy sauce.
@@ -754,9 +769,9 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <h4 class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-orange-400">
                 ₹149
-              </h4>
+              </span>
   
               <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
                 +
@@ -779,9 +794,9 @@
               decoding="async"
             />
   
-            <h3 class="text-2xl font-bold mt-6">
+            <p class="text-2xl font-bold mt-6">
               Veg Loaded Burger
-            </h3>
+            </p>
   
             <p class="text-gray-400 mt-3 text-sm leading-7">
               Crispy veg patty with creamy burger dressing and lettuce.
@@ -789,9 +804,9 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <h4 class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-orange-400">
                 ₹99
-              </h4>
+              </span>
   
               <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
                 +
@@ -814,9 +829,9 @@
               decoding="async"
             />
   
-            <h3 class="text-2xl font-bold mt-6">
+            <p class="text-2xl font-bold mt-6">
               Fries Combo Meal
-            </h3>
+            </p>
   
             <p class="text-gray-400 mt-3 text-sm leading-7">
               Burger + fries + cold drink combo for ultimate cravings.
@@ -824,9 +839,9 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <h4 class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-orange-400">
                 ₹199
-              </h4>
+              </span>
   
               <button class="orange-gradient h-12 w-12 rounded-full text-white text-2xl">
                 +
@@ -866,10 +881,10 @@
             Opening Offer
           </p>
 
-          <h2 class="text-5xl lg:text-7xl font-extrabold mt-6">
+          <p class="text-5xl lg:text-7xl font-extrabold mt-6 leading-none">
             BUY 1<br/>
             GET 1 FREE
-          </h2>
+          </p>
 
           <p class="mt-8 text-lg leading-8 text-white/90">
             Visit Camp Bite in Dhule or Shirpur and grab
@@ -927,19 +942,15 @@
         </h2>
 
         <p class="mt-8 text-gray-400 leading-8">
-          <strong class="text-gray-300 font-medium">Camp Bite</strong> is more than just burgers — we are building
-          a bold burger culture across <strong class="text-gray-300 font-medium">Dhule and Shirpur</strong>
+          Camp Bite is more than just burgers — we are building a bold burger culture across Dhule and Shirpur
           with loaded flavors, cinematic food reels, premium ingredients, and unforgettable experiences.
-          Whether you search <strong class="text-gray-300 font-medium">Camp Bite</strong>,
-          <strong class="text-gray-300 font-medium">Camp Bite Dhule</strong>, or
-          <strong class="text-gray-300 font-medium">Camp Bite Shirpur</strong>, you get the same viral menu
-          and Gen Z cafe energy at both outlets.
+          Whether you visit Camp Bite Dhule near Jaihind College or Camp Bite Shirpur at Karvand Naka, you get the same viral menu and Gen Z cafe energy.
         </p>
         <p class="mt-6 text-gray-400 leading-8">
           From crispy chicken crunch burgers to veg loaded patties, peri peri fries, and chilled drinks,
           every item is prepared fresh when you order. We focus on soft buns, signature sauces made daily,
           and portions that feel worth every rupee — the kind of food you want to share on Instagram
-          and come back for with friends.
+          and come back for with friends. Many guests call us a top cafe in Dhule and a favourite burger spot in Shirpur for loaded burgers, best fries, and fast food combos at student-friendly prices.
         </p>
 
         <div class="mt-10 space-y-5">
@@ -982,8 +993,7 @@
           Camp Bite Outlets in Dhule &amp; Shirpur
         </h2>
         <p class="mt-5 text-gray-400 leading-8">
-          Visit the <strong class="text-gray-300 font-medium">Camp Bite</strong> outlet nearest you — same loaded burgers,
-          fries, drinks, and combo deals at both locations.
+          Visit the Camp Bite outlet nearest you — same loaded burgers, fries, drinks, and combo deals at both locations.
         </p>
       </div>
 
@@ -994,7 +1004,7 @@
               <i class="fa-solid fa-store"></i>
             </div>
             <div>
-              <h3 class="text-2xl font-bold">Camp Bite Dhule</h3>
+              <p class="text-2xl font-bold">Camp Bite Dhule</p>
               <p class="text-orange-400 text-sm font-medium">Outlet 1</p>
             </div>
           </div>
@@ -1005,14 +1015,11 @@
             </p>
             <p class="flex items-start gap-3">
               <i class="fa-solid fa-phone text-orange-500 mt-1 shrink-0" aria-hidden="true"></i>
-              <a href="tel:+918668806938" class="hover:text-orange-400 transition">+91 8668806938</a>
+              <a href="tel:+918668806938" class="hover:text-orange-400 transition">Call Dhule outlet</a>
             </p>
           </address>
           <p class="mt-6 text-gray-400 text-sm leading-7">
-            Top pick for <strong class="text-gray-300">cafe in Dhule</strong>,
-            <strong class="text-gray-300">best cafe in Dhule</strong>,
-            <strong class="text-gray-300">burger cafe Dhule</strong>, and
-            <strong class="text-gray-300">fast food near Jaihind College</strong>.
+            Popular for cafe in Dhule, burger cafe Dhule, and fast food near Jaihind College — loaded burgers, peri peri fries, and combo meals.
           </p>
           <a href="https://wa.me/918668806938?text=Hi%20Camp%20Bite%2C%20I%20want%20to%20order%20from%20Dhule%20outlet." class="mt-6 inline-flex orange-gradient px-6 py-3 rounded-full font-semibold text-sm hover:scale-105 transition" target="_blank" rel="noopener noreferrer">
             Order from Dhule
@@ -1025,7 +1032,7 @@
               <i class="fa-solid fa-store"></i>
             </div>
             <div>
-              <h3 class="text-2xl font-bold">Camp Bite Shirpur</h3>
+              <p class="text-2xl font-bold">Camp Bite Shirpur</p>
               <p class="text-orange-400 text-sm font-medium">Outlet 2</p>
             </div>
           </div>
@@ -1036,14 +1043,11 @@
             </p>
             <p class="flex items-start gap-3">
               <i class="fa-solid fa-phone text-orange-500 mt-1 shrink-0" aria-hidden="true"></i>
-              <a href="tel:+918668806938" class="hover:text-orange-400 transition">+91 8668806938</a>
+              <a href="tel:+918668806938" class="hover:text-orange-400 transition">Phone Shirpur branch</a>
             </p>
           </address>
           <p class="mt-6 text-gray-400 text-sm leading-7">
-            Top pick for <strong class="text-gray-300">cafe in Shirpur</strong>,
-            <strong class="text-gray-300">best cafe in Shirpur</strong>,
-            <strong class="text-gray-300">food cafe Karvand Naka</strong>, and
-            <strong class="text-gray-300">best burger in Shirpur</strong>.
+            Known as a leading cafe in Shirpur and food cafe at Karvand Naka — best burger in Shirpur, fries, and chilled drinks.
           </p>
           <a href="https://wa.me/918668806938?text=Hi%20Camp%20Bite%2C%20I%20want%20to%20order%20from%20Shirpur%20outlet." class="mt-6 inline-flex orange-gradient px-6 py-3 rounded-full font-semibold text-sm hover:scale-105 transition" target="_blank" rel="noopener noreferrer">
             Order from Shirpur
@@ -1053,132 +1057,58 @@
     </div>
   </section>
 
-  <!-- ================= LOCAL SEO CONTENT ================= -->
-
-  <section id="local-seo" class="py-20 bg-[#121212] border-t border-white/5" aria-labelledby="local-seo-title">
-    <div class="site-container max-w-3xl">
-      <h2 id="local-seo-title" class="text-3xl sm:text-4xl font-bold text-center">
-        Best Cafe &amp; Food Spot in Dhule &amp; Shirpur
-      </h2>
-      <div class="mt-8 space-y-8 text-gray-400 leading-8 text-base sm:text-lg">
-        <div>
-          <h3 class="text-2xl font-semibold text-orange-400 mb-4">Cafe in Dhule — Camp Bite near Jaihind College</h3>
-          <p>
-            If you are looking for a <strong class="text-gray-300 font-medium">cafe in Dhule</strong> with great food,
-            atmosphere, and affordable prices, Camp Bite is a standout choice. Many customers rate us among the
-            <strong class="text-gray-300 font-medium">best cafe in Dhule</strong> for loaded burgers, peri peri fries,
-            cheese fries, cold drinks, shakes, and filling combo meals. Our Dhule outlet near
-            <strong class="text-gray-300 font-medium">Jaihind College</strong> is perfect for students, families, and
-            anyone searching <strong class="text-gray-300 font-medium">best burger in Dhule</strong>,
-            <strong class="text-gray-300 font-medium">fast food in Dhule</strong>, or a
-            <strong class="text-gray-300 font-medium">food cafe in Dhule</strong> with a modern Gen Z vibe.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-orange-400 mb-4">Cafe in Shirpur — Camp Bite at Karvand Naka</h3>
-          <p>
-            For a <strong class="text-gray-300 font-medium">cafe in Shirpur</strong> that serves bold flavors and
-            generous portions, visit Camp Bite at <strong class="text-gray-300 font-medium">Karvand Naka</strong>.
-            We are a trusted <strong class="text-gray-300 font-medium">best cafe in Shirpur</strong> for burgers,
-            sides, and drinks — ideal when you search
-            <strong class="text-gray-300 font-medium">best food in Shirpur</strong>,
-            <strong class="text-gray-300 font-medium">restaurant in Shirpur</strong>, or
-            <strong class="text-gray-300 font-medium">fast food near Karvand Naka</strong>.
-            Same menu and quality as our Dhule outlet.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-orange-400 mb-4">Burgers, fries &amp; more — one menu, two cities</h3>
-          <p>
-            Camp Bite is more than a burger shop — we are a full <strong class="text-gray-300 font-medium">food cafe</strong>
-            experience with Chicken Crunch, Jumbo Cheese, Veg Loaded, BBQ fries, mango shakes, and group combos.
-            Dine in, takeaway, or order on WhatsApp. See our
-            <a href="/menu.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-4">full food menu</a>
-            and visit the <a href="#locations" class="text-orange-400 hover:text-orange-300 underline underline-offset-4">nearest outlet</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FAQ (content + SEO) ================= -->
+  <!-- ================= FAQ ================= -->
 
   <section id="faq" class="py-20 bg-[#121212]" aria-labelledby="faq-title">
     <div class="site-container max-w-3xl">
       <h2 id="faq-title" class="text-3xl sm:text-4xl font-bold text-center">
         Frequently Asked Questions
       </h2>
-      <div class="mt-12 space-y-10">
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">What is the best cafe in Dhule?</h3>
+      <div class="mt-10 space-y-4 faq-list">
+        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">What is the best cafe in Dhule?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            Camp Bite near Jaihind College is a leading <strong class="text-gray-300">cafe in Dhule</strong> for loaded burgers,
-            fries, drinks, and fast food combos. Students and families choose us for taste, portion size, and affordable pricing.
-            Visit our Dhule outlet or check the <a href="/menu.html" class="text-orange-400 hover:underline">menu online</a>.
+            Camp Bite near Jaihind College is a leading cafe in Dhule for loaded burgers, fries, drinks, and fast food combos.
+            Students and families choose us for taste, portion size, and affordable pricing.
+            Visit our Dhule outlet or <a href="/menu.html" class="text-orange-400 hover:underline">see prices &amp; dishes</a>.
           </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">What is the best cafe in Shirpur?</h3>
+        </details>
+        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">What is the best cafe in Shirpur?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            Camp Bite at Karvand Naka is a popular <strong class="text-gray-300">cafe in Shirpur</strong> for burgers, fries,
-            and chilled beverages. If you want the <strong class="text-gray-300">best cafe in Shirpur</strong> for fast food
-            with a fun cafe atmosphere, visit us or order on WhatsApp.
+            Camp Bite at Karvand Naka is a popular cafe in Shirpur for burgers, fries, and chilled beverages.
+            Visit us or order on WhatsApp for the same viral menu as our Dhule outlet.
           </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">Where is Camp Bite located in Dhule?</h3>
+        </details>
+        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">Where are Camp Bite outlets?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            Our Dhule outlet is in the <strong class="text-gray-300">Jaihind College area, Dhule, Maharashtra (424001)</strong>.
-            It is easy to reach for students, families, and anyone searching Camp Bite Dhule or burger cafe near Jaihind College.
-            Call <a href="tel:+918668806938" class="text-orange-400 hover:underline">+91 8668806938</a> or WhatsApp for directions.
+            Dhule: Jaihind College Area, Maharashtra 424001. Shirpur: Karvand Naka, Maharashtra 425405.
+            Both open daily 11 AM–11 PM. <a href="#locations" class="text-orange-400 hover:underline">Get directions to both stores</a>.
           </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">Where is Camp Bite in Shirpur?</h3>
+        </details>
+        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">Does Camp Bite offer veg burgers?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            Our Shirpur outlet is at <strong class="text-gray-300">Karvand Naka, Shirpur, Dhule,  Maharashtra 425405</strong>.
-            If you search Camp Bite Shirpur, burger near Karvand Naka, or best fast food in Shirpur, this is your nearest Camp Bite.
-            Same menu, same loaded burgers — visit us or order on WhatsApp.
+            Yes — Veg Loaded Burger, fries, drinks, and combos for vegetarian guests.
+            <a href="/menu.html" class="text-orange-400 hover:underline">Check veg options on the menu</a>.
           </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">Does Camp Bite have two outlets?</h3>
+        </details>
+        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">How can I order from Camp Bite?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            Yes. Camp Bite currently operates two outlets — <strong class="text-gray-300">Dhule (Jaihind College area)</strong>
-            and <strong class="text-gray-300">Shirpur (Karvand Naka)</strong>. Both serve the same popular burgers, fries, drinks, and combos.
-            See the <a href="#locations" class="text-orange-400 hover:underline">Our Outlets</a> section for addresses.
+            Dine in at either outlet, <a href="tel:+918668806938" class="text-orange-400 hover:underline">ring Camp Bite</a>,
+            or <a href="https://wa.me/918668806938" class="text-orange-400 hover:underline" rel="noopener noreferrer" target="_blank">chat on WhatsApp</a>.
+            Ask about BOGO opening-week deals when available.
           </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">What are Camp Bite opening hours?</h3>
+        </details>
+        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">Why is Camp Bite popular?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            We are typically open daily from 11:00 AM to 11:00 PM. Hours may change on holidays or special events —
-            follow our Instagram page <a href="https://www.instagram.com/camp_bite/" class="text-orange-400 hover:underline" rel="noopener noreferrer" target="_blank">@camp_bite</a> for live updates.
+            Affordable pricing, large portions, fast service, and a modern cafe vibe at both Dhule and Shirpur.
+            Follow <a href="https://www.instagram.com/camp_bite/" class="text-orange-400 hover:underline" rel="noopener noreferrer" target="_blank">@camp_bite on Instagram</a> for hours and offers.
           </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">Does Camp Bite offer veg burgers?</h3>
-          <p class="mt-3 text-gray-400 leading-8">
-            Yes. Our Veg Loaded Burger is a customer favorite, with a crispy patty, fresh lettuce, and creamy dressing.
-            We also serve fries, drinks, and combos suitable for vegetarian guests. See the full list on our menu page.
-          </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">How can I order from Camp Bite?</h3>
-          <p class="mt-3 text-gray-400 leading-8">
-            Visit us in person near Jaihind College, call <a href="tel:+918668806938" class="text-orange-400 hover:underline">+91 8668806938</a>,
-            or message us on <a href="https://wa.me/918668806938" class="text-orange-400 hover:underline" rel="noopener noreferrer" target="_blank">WhatsApp</a>
-            to place an order. Ask about opening-week deals such as buy-one-get-one offers when available.
-          </p>
-        </article>
-        <article>
-          <h3 class="text-xl font-semibold text-orange-400">Why is Camp Bite popular in Dhule and Shirpur?</h3>
-          <p class="mt-3 text-gray-400 leading-8">
-            Camp Bite is loved for affordable pricing, large portions, fast service, and a modern cafe vibe at both outlets.
-            Students in Dhule and families in Shirpur choose us for loaded burgers, shareable fries, and combo meals —
-            plus reels-friendly presentation that makes every bite worth sharing.
-          </p>
-        </article>
+        </details>
       </div>
     </div>
   </section>
@@ -1198,17 +1128,16 @@
         </p>
 
         <p class="mt-6 text-gray-400 leading-8">
-          Best cafe &amp; burger destination in <strong class="text-gray-300">Dhule</strong> and
-          <strong class="text-gray-300">Shirpur</strong> — loaded burgers, fries, fast food &amp; combos.
+          Best cafe &amp; burger destination in Dhule and Shirpur — loaded burgers, fries, fast food &amp; combos.
         </p>
 
       </div>
 
       <div class="reveal-child">
 
-        <h3 class="text-xl font-semibold mb-6">
+        <p class="text-xl font-semibold mb-6">
           Explore
-        </h3>
+        </p>
 
         <ul class="space-y-4 text-gray-400">
           <li><a href="/" class="hover:text-orange-400 transition">Back to homepage</a></li>
@@ -1224,9 +1153,9 @@
 
       <div class="reveal-child">
 
-        <h3 class="text-xl font-semibold mb-6">
+        <p class="text-xl font-semibold mb-6">
           Outlet Addresses
-        </h3>
+        </p>
 
         <ul class="space-y-6 text-gray-400">
           <li>
@@ -1239,7 +1168,7 @@
           </li>
           <li class="flex items-start gap-3 pt-2 border-t border-white/10">
             <i class="fa-solid fa-phone text-orange-500 mt-1 shrink-0" aria-hidden="true"></i>
-            <a href="tel:+918668806938" class="hover:text-orange-400 transition">+91 8668806938</a>
+            <a href="tel:+918668806938" class="hover:text-orange-400 transition">Contact by phone</a>
           </li>
           <li class="flex items-start gap-3">
             <i class="fa-solid fa-envelope text-orange-500 mt-1 shrink-0" aria-hidden="true"></i>
@@ -1251,9 +1180,9 @@
 
       <div class="reveal-child">
 
-        <h3 class="text-xl font-semibold mb-6">
+        <p class="text-xl font-semibold mb-6">
           Follow Us
-        </h3>
+        </p>
       
         <div class="flex gap-4">
       
@@ -1290,8 +1219,8 @@
     <div class="border-t border-white/10 mt-16 pt-8 text-center text-gray-500 space-y-3">
       <p class="text-sm text-gray-400 max-w-2xl mx-auto px-4">
         Camp Bite — best cafe &amp; burger spot in Dhule (Jaihind College) &amp; Shirpur (Karvand Naka). Cafe, burgers, fries &amp; fast food.
-        <a href="/#locations" class="text-orange-400 hover:underline">Find an outlet</a> or
-        <a href="/menu.html" class="text-orange-400 hover:underline">view the full menu</a>.
+        <a href="/#locations" class="text-orange-400 hover:underline">Pick Dhule or Shirpur</a> or
+        <a href="/menu.html" class="text-orange-400 hover:underline">open the food menu</a>.
       </p>
       <p>© 2026 Camp Bite. All Rights Reserved.</p>
     </div>
