@@ -1,11 +1,13 @@
 {
+  "id": "/",
+  "lang": "en-IN",
   "name": "Camp Bite",
   "short_name": "Camp Bite",
-  "description": "Best cafe and burgers in Dhule and Shirpur",
+  "description": "Official Camp Bite burger cafe — Dhule and Shirpur, Maharashtra",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#f97316",
+  "background_color": "#fde4c3",
+  "theme_color": "#ff7f00",
   "icons": [
     {
       "src": "/favicon-192x192.png",

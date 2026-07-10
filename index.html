@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style id="critical-css">
-    html{background:#111}
-    body{margin:0;background:#111;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-    a{color:#e5e7eb;text-decoration:none}
-    a:hover{color:#fb923c}
-    #site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(0,0,0,.85);border-bottom:1px solid rgba(255,255,255,.1)}
+    html{background:linear-gradient(165deg,#fff8ef 0%,#fde4c3 45%,#fad4a8 100%);min-height:100%}
+    body{margin:0;background:linear-gradient(165deg,#fff8ef 0%,#fde4c3 45%,#fad4a8 100%);color:#3d2c1e;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+    a{color:#5c4030;text-decoration:none}
+    a:hover{color:#ff7f00}
+    #site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.35);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.55)}
     #site-header .site-container{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;max-width:80rem;margin:0 auto}
-    #main-nav,.header-order-btn{display:none!important}
-    #mobile-menu-btn{display:block;background:0;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
+    #main-nav{display:none!important}
+    #mobile-menu-btn{display:block;background:0;border:0;color:#3d2c1e;font-size:1.5rem;cursor:pointer;padding:.5rem}
     #mobile-menu,#mobile-menu-overlay{display:none!important}
     #mobile-menu.is-open{display:flex!important;flex-direction:column}
     #mobile-menu-overlay.is-open{display:block!important}
     .reveal,.reveal-child{opacity:1!important;transform:none!important}
     @media(min-width:768px){
       #main-nav{display:flex!important;align-items:center;gap:2rem;font-size:.875rem}
-      .header-order-btn{display:inline-flex!important}
       #mobile-menu-btn{display:none!important}
     }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Camp Bite | Best Cafe &amp; Burgers in Dhule &amp; Shirpur</title>
+  <title>Camp Bite | Official Burger Cafe – Dhule &amp; Shirpur, Maharashtra</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Camp Bite — best cafe &amp; burger spot in Dhule &amp; Shirpur. Loaded burgers, crispy fries, fast food &amp; combos. Visit Jaihind College, Dhule or Karvand Naka, Shirpur." />
-  <meta name="keywords" content="Camp Bite, cafe in Dhule, cafe in Shirpur, best cafe in Dhule, best cafe in Shirpur, burger cafe Dhule, burger cafe Shirpur, best burger in Dhule, best burger in Shirpur, fast food Dhule, fast food Shirpur, food cafe Dhule, food cafe Shirpur, restaurant Dhule, restaurant Shirpur, cafe near Jaihind College, cafe Karvand Naka, loaded burgers, Camp Bite menu" />
+  <meta name="description" content="Camp Bite — official burger cafe in Dhule &amp; Shirpur, Maharashtra. Loaded burgers, crispy fries, fast food &amp; combos at Jaihind College &amp; Karvand Naka. Dine in or order on WhatsApp." />
+  <meta name="keywords" content="Camp Bite, Camp Bite official, Camp Bite India, Camp Bite Dhule, Camp Bite Shirpur, burger cafe Dhule, burger cafe Shirpur, best cafe in Dhule, best cafe in Shirpur, Camp Bite menu, fast food Dhule, restaurant Dhule, cafe near Jaihind College, cafe Karvand Naka" />
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Dhule, Shirpur" />
   <meta name="author" content="Camp Bite" />
@@ -49,8 +48,8 @@
   <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc.) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://campbite.netlify.app/" />
-  <meta property="og:title" content="Camp Bite | Best Cafe &amp; Burgers – Dhule &amp; Shirpur" />
-  <meta property="og:description" content="Camp Bite — best cafe &amp; burger spot in Dhule &amp; Shirpur. Loaded burgers, crispy fries, fast food &amp; combos. Visit Jaihind College, Dhule or Karvand Naka, Shirpur." />
+  <meta property="og:title" content="Camp Bite | Official Burger Cafe – Dhule &amp; Shirpur" />
+  <meta property="og:description" content="Camp Bite — official burger cafe in Dhule &amp; Shirpur, Maharashtra. Loaded burgers, fries, fast food &amp; combos at Jaihind College &amp; Karvand Naka." />
   <meta property="og:image" content="https://campbite.netlify.app/og-image.jpg" />
   <meta property="og:image:secure_url" content="https://campbite.netlify.app/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -61,12 +60,12 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Camp Bite | Burger Cafe – Dhule &amp; Shirpur" />
-  <meta name="twitter:description" content="Camp Bite — best cafe &amp; burgers in Dhule &amp; Shirpur. Loaded burgers, fries, fast food &amp; combos at Jaihind College, Dhule and Karvand Naka, Shirpur." />
+  <meta name="twitter:title" content="Camp Bite | Official Burger Cafe – Dhule &amp; Shirpur" />
+  <meta name="twitter:description" content="Camp Bite — official burger cafe in Dhule &amp; Shirpur. Loaded burgers, fries &amp; combos at Jaihind College &amp; Karvand Naka, Maharashtra." />
   <meta name="twitter:image" content="https://campbite.netlify.app/og-image.jpg" />
   <meta name="twitter:image:alt" content="Camp Bite burger cafe – Dhule and Shirpur" />
 
-  <meta name="theme-color" content="#f97316" />
+  <meta name="theme-color" content="#FF7F00" />
 
   <script type="application/ld+json">
   {
@@ -76,31 +75,53 @@
         "@type": "WebSite",
         "@id": "https://campbite.netlify.app/#website",
         "name": "Camp Bite",
-        "alternateName": "Camp Bite Burger Cafe",
+        "alternateName": ["Camp Bite Burger Cafe", "Camp Bite India", "Camp Bite Dhule", "Camp Bite Shirpur"],
         "url": "https://campbite.netlify.app/",
+        "description": "Official website of Camp Bite — burger cafe with outlets in Dhule and Shirpur, Maharashtra, India.",
         "publisher": { "@id": "https://campbite.netlify.app/#organization" },
         "inLanguage": "en-IN"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://campbite.netlify.app/#webpage",
+        "url": "https://campbite.netlify.app/",
+        "name": "Camp Bite | Official Burger Cafe – Dhule & Shirpur",
+        "description": "Camp Bite official burger cafe in Dhule and Shirpur, Maharashtra. Loaded burgers, fries, fast food and combos.",
+        "isPartOf": { "@id": "https://campbite.netlify.app/#website" },
+        "about": { "@id": "https://campbite.netlify.app/#organization" },
+        "inLanguage": "en-IN",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://campbite.netlify.app/og-image.jpg"
+        }
       },
       {
         "@type": "Organization",
         "@id": "https://campbite.netlify.app/#organization",
         "name": "Camp Bite",
-        "alternateName": ["Camp Bite Burger Cafe", "Camp Bite Dhule", "Camp Bite Shirpur", "Best Cafe Dhule", "Best Cafe Shirpur"],
-        "description": "Camp Bite is a popular cafe and burger restaurant in Dhule and Shirpur serving loaded burgers, fries, fast food, drinks, and combos.",
+        "legalName": "Camp Bite Burger Cafe",
+        "alternateName": ["Camp Bite Burger Cafe", "Camp Bite Dhule", "Camp Bite Shirpur", "Camp Bite India"],
+        "description": "Camp Bite is an independent burger cafe brand in Maharashtra, India, serving loaded burgers, fries, fast food, drinks, and combos at Dhule and Shirpur.",
         "areaServed": [
-          { "@type": "City", "name": "Dhule" },
-          { "@type": "City", "name": "Shirpur" }
+          { "@type": "City", "name": "Dhule", "containedInPlace": { "@type": "State", "name": "Maharashtra" } },
+          { "@type": "City", "name": "Shirpur", "containedInPlace": { "@type": "State", "name": "Maharashtra" } }
         ],
         "url": "https://campbite.netlify.app/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://campbite.netlify.app/favicon-192x192.png",
-          "width": 192,
-          "height": 192
+          "url": "https://campbite.netlify.app/logo-removebg-preview.png",
+          "width": 512,
+          "height": 512
         },
         "image": "https://campbite.netlify.app/og-image.jpg",
         "email": "campbite.official@gmail.com",
         "telephone": "+91-8668806938",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhule",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
         "sameAs": [
           "https://www.instagram.com/camp_bite/",
           "https://www.youtube.com/@CampBiteOfficial",
@@ -108,16 +129,17 @@
         ]
       },
       {
-        "@type": "Restaurant",
+        "@type": ["Restaurant", "LocalBusiness", "FoodEstablishment"],
         "@id": "https://campbite.netlify.app/#dhule",
         "name": "Camp Bite – Dhule",
         "description": "Camp Bite cafe and burger restaurant in Dhule — best cafe near Jaihind College for loaded burgers, fries, and fast food.",
         "parentOrganization": { "@id": "https://campbite.netlify.app/#organization" },
-        "url": "https://campbite.netlify.app/",
+        "url": "https://campbite.netlify.app/#locations",
+        "image": "https://campbite.netlify.app/og-image.jpg",
         "hasMenu": "https://campbite.netlify.app/menu.html",
         "telephone": "+91-8668806938",
         "servesCuisine": ["Burger", "Fast Food", "Cafe", "American"],
-        "priceRange": "$$",
+        "priceRange": "₹₹",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Jaihind College Area",
@@ -139,16 +161,17 @@
         }]
       },
       {
-        "@type": "Restaurant",
+        "@type": ["Restaurant", "LocalBusiness", "FoodEstablishment"],
         "@id": "https://campbite.netlify.app/#shirpur",
         "name": "Camp Bite – Shirpur",
         "description": "Camp Bite cafe and burger restaurant in Shirpur — best cafe at Karvand Naka for burgers, fries, drinks, and fast food combos.",
         "parentOrganization": { "@id": "https://campbite.netlify.app/#organization" },
-        "url": "https://campbite.netlify.app/",
+        "url": "https://campbite.netlify.app/#locations",
+        "image": "https://campbite.netlify.app/og-image.jpg",
         "hasMenu": "https://campbite.netlify.app/menu.html",
         "telephone": "+91-8668806938",
         "servesCuisine": ["Burger", "Fast Food", "Cafe", "American"],
-        "priceRange": "$$",
+        "priceRange": "₹₹",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Karvand Naka",
@@ -175,6 +198,14 @@
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "What is Camp Bite?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Camp Bite is an independent burger cafe brand based in Maharashtra, India, with outlets in Dhule (Jaihind College) and Shirpur (Karvand Naka). We serve loaded burgers, fries, drinks, and combo meals."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "What is the best cafe in Dhule?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -191,10 +222,34 @@
           },
           {
             "@type": "Question",
-            "name": "Where can I find a cafe in Dhule and Shirpur?",
+            "name": "Where are Camp Bite outlets?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Camp Bite has two outlets: Jaihind College Area, Dhule (424001) and Karvand Naka, Shirpur (425405). Both are open daily 11 AM to 11 PM."
+              "text": "Camp Bite Dhule: Jaihind College Area, Maharashtra 424001. Camp Bite Shirpur: Karvand Naka, Maharashtra 425405. Both open daily 11 AM to 11 PM."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Camp Bite offer veg burgers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — Camp Bite offers Veg Loaded Burger, fries, drinks, and combos for vegetarian guests at both Dhule and Shirpur outlets."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I order from Camp Bite?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dine in at Camp Bite Dhule or Camp Bite Shirpur, call +91 8668806938, or order via WhatsApp. Ask about BOGO opening-week deals when available."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is Camp Bite popular?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Camp Bite is popular for affordable pricing, large portions, fast service, and a modern cafe vibe at both Dhule and Shirpur outlets."
             }
           }
         ]
@@ -203,6 +258,10 @@
   }
   </script>
 
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1200&auto=format&fit=crop" fetchpriority="high"/>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com"/>
+  <link rel="preconnect" href="https://images.unsplash.com"/>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 
@@ -221,6 +280,19 @@
 
     :root{
       --header-height: 4.75rem;
+      --peach-50: #fff8ef;
+      --peach-100: #fde4c3;
+      --peach-200: #fad4a8;
+      --orange: #ff7f00;
+      --orange-vivid: #ff8c00;
+      --orange-soft: #ffa54f;
+      --orange-deep: #e86a00;
+      --text-primary: #3d2c1e;
+      --text-muted: #6b5344;
+      --glass-bg: rgba(255, 255, 255, 0.32);
+      --glass-border: rgba(255, 255, 255, 0.55);
+      --glass-shadow: 0 8px 32px rgba(255, 127, 0, 0.12);
+      --glass-orange: rgba(255, 140, 0, 0.38);
     }
 
     html{
@@ -231,6 +303,8 @@
       width: 100%;
       max-width: 100%;
       overflow-x: clip;
+      background: linear-gradient(165deg, var(--peach-50) 0%, var(--peach-100) 45%, var(--peach-200) 100%);
+      min-height: 100%;
     }
 
     #mobile-menu-btn .menu-icon-fa{
@@ -247,7 +321,9 @@
 
     body{
       font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: #111111;
+      background: linear-gradient(165deg, var(--peach-50) 0%, var(--peach-100) 45%, var(--peach-200) 100%);
+      background-attachment: fixed;
+      color: var(--text-primary);
       overflow-x: clip;
       margin: 0;
       padding: 0;
@@ -257,12 +333,33 @@
       position: relative;
     }
 
+    body::before{
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 85% 15%, rgba(255, 127, 0, 0.28) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(255, 165, 79, 0.2) 0%, transparent 50%);
+    }
+
+    body > *:not(#ember-canvas):not(.ember-glow){
+      position: relative;
+      z-index: 1;
+    }
+
     #site-header{
       width: 100%;
       max-width: 100vw;
       overflow: hidden;
       left: 0;
       right: 0;
+      background: rgba(255, 255, 255, 0.35) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border) !important;
+      box-shadow: 0 4px 24px rgba(255, 127, 0, 0.08);
     }
 
     #site-header .site-container{
@@ -273,6 +370,18 @@
       min-width: 0;
       flex: 1 1 auto;
       overflow: hidden;
+    }
+
+    #mobile-menu{
+      background: rgba(255, 248, 239, 0.92) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-left: 1px solid var(--glass-border) !important;
+    }
+
+    #mobile-menu-overlay{
+      background: rgba(61, 44, 30, 0.25) !important;
+      backdrop-filter: blur(4px);
     }
 
     section,
@@ -304,6 +413,7 @@
       min-height: 100dvh;
       width: 100%;
       overflow: hidden;
+      position: relative;
     }
 
     section[id],
@@ -312,28 +422,130 @@
     }
 
     .hero-bg{
+      background: transparent;
+      position: relative;
+    }
+
+    .hero-bg::before{
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.8)),
-      url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1600&auto=format&fit=crop");
-      background-size: cover;
-      background-position: center;
+        radial-gradient(ellipse 90% 80% at 75% 40%, rgba(255, 127, 0, 0.92) 0%, rgba(255, 140, 0, 0.75) 45%, transparent 72%),
+        linear-gradient(135deg, rgba(255, 165, 79, 0.15) 0%, transparent 50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-bg > .site-container{
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-bg .hero-text,
+    .hero-bg h1,
+    .hero-bg .hero-sub,
+    .hero-bg .hero-stats .text-3xl{
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-bg .hero-muted,
+    .hero-bg .text-gray-400{
+      color: rgba(255, 255, 255, 0.88) !important;
+    }
+
+    .glass-badge{
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: var(--glass-shadow);
+      color: var(--text-primary);
     }
 
     .orange-gradient{
-      background: linear-gradient(135deg,#ff7a00,#ff3d00);
+      background: linear-gradient(135deg, var(--orange-vivid), var(--orange-deep));
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(255, 127, 0, 0.35);
     }
 
-    .card-bg{
-      background: #1a1a1a;
+    .btn-glass{
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      color: var(--orange-deep);
+      box-shadow: var(--glass-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-glass:hover{
+      transform: scale(1.04);
+      box-shadow: 0 12px 36px rgba(255, 127, 0, 0.2);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .card-bg,
+    .glass-card{
+      background: var(--glass-orange);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: var(--glass-shadow);
+      color: #fff;
+    }
+
+    .glass-card .text-muted,
+    .card-bg .text-gray-400{
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    .glass-panel{
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
     }
 
     .glass{
-      backdrop-filter: blur(15px);
-      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: var(--glass-shadow);
+    }
+
+    .section-peach{
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .section-title{
+      color: var(--text-primary);
+    }
+
+    .section-sub,
+    .text-muted{
+      color: var(--text-muted);
+    }
+
+    .text-accent{
+      color: var(--orange);
+    }
+
+    .offer-glass{
+      background: linear-gradient(135deg, rgba(255, 140, 0, 0.88), rgba(232, 106, 0, 0.92));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 20px 60px rgba(255, 127, 0, 0.35);
+      color: #fff;
     }
 
     .glow{
-      box-shadow: 0 0 30px rgba(255,119,0,0.3);
+      box-shadow: 0 16px 48px rgba(255, 127, 0, 0.25);
     }
 
     .hover-scale{
@@ -342,6 +554,7 @@
 
     .hover-scale:hover{
       transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(255, 127, 0, 0.28);
     }
 
     .scrollbar-hide::-webkit-scrollbar {
@@ -356,10 +569,15 @@
     .nav-link{
       position: relative;
       transition: color 0.3s ease;
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover{
+      color: var(--orange);
     }
 
     header nav .nav-link.active{
-      color: #fb923c;
+      color: var(--orange-deep);
     }
 
     header nav .nav-link.active::after{
@@ -370,49 +588,277 @@
       bottom: -6px;
       height: 2px;
       border-radius: 2px;
-      background: linear-gradient(135deg, #ff7a00, #ff3d00);
+      background: linear-gradient(135deg, var(--orange-vivid), var(--orange-deep));
+    }
+
+    #mobile-menu .nav-link{
+      color: var(--text-primary);
     }
 
     #mobile-menu .nav-link.active{
-      color: #fb923c;
-      border-left: 3px solid #ff7a00;
+      color: var(--orange-deep);
+      border-left: 3px solid var(--orange);
       padding-left: 0.75rem;
     }
 
-    /* —— Fire ember / spark overlay —— */
     #ember-canvas{
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 25;
-      opacity: 0.65;
-      mix-blend-mode: screen;
+      display: none;
     }
 
     .ember-glow{
-      position: fixed;
-      bottom: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100vw;
-      max-width: 100%;
-      height: 45vh;
-      background: radial-gradient(
-        ellipse at center bottom,
-        rgba(255, 90, 0, 0.18) 0%,
-        rgba(255, 50, 0, 0.06) 40%,
-        transparent 70%
-      );
-      pointer-events: none;
-      z-index: 1;
-      animation: emberPulse 4s ease-in-out infinite;
+      display: none;
     }
 
-    @keyframes emberPulse{
-      0%, 100%{ opacity: 0.6; transform: translateX(-50%) scale(1); }
-      50%{ opacity: 1; transform: translateX(-50%) scale(1.05); }
+    .hero-blob{
+      position: absolute;
+      border-radius: 50% 40% 60% 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 165, 79, 0.5), rgba(255, 127, 0, 0.15));
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .hot-items-label{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hot-items-label::before,
+    .hot-items-label::after{
+      content: "";
+      height: 1px;
+      width: 3rem;
+      background: linear-gradient(90deg, transparent, var(--orange-soft), transparent);
+    }
+
+    .faq-item{
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: var(--glass-shadow);
+    }
+
+    .faq-item summary{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      list-style: none;
+      cursor: pointer;
+      color: var(--orange-deep);
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display: none;
+    }
+
+    .faq-item summary::marker{
+      display: none;
+      content: "";
+    }
+
+    .faq-item summary::after{
+      content: "";
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-right: 2.5px solid var(--orange-deep);
+      border-bottom: 2.5px solid var(--orange-deep);
+      transform: rotate(45deg);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item[open] summary{
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item[open] summary::after{
+      transform: rotate(-135deg);
+    }
+
+    .faq-item p{
+      color: var(--text-muted);
+    }
+
+    footer#contact{
+      background: linear-gradient(135deg, rgba(255, 140, 0, 0.9), rgba(232, 106, 0, 0.95)) !important;
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: #fff;
+    }
+
+    footer#contact .text-gray-400,
+    footer#contact .text-gray-500{
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    footer#contact a:not(.footer-contact-link):not(.footer-explore-link){
+      color: rgba(255, 255, 255, 0.95);
+      text-decoration: none;
+    }
+
+    footer#contact a.footer-explore-link{
+      display: inline-block;
+      text-decoration: none;
+      background: linear-gradient(
+        90deg,
+        #1a1a1a 0%,
+        #1a1a1a 50%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.85) 100%
+      );
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      transition: background-position 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    footer#contact a.footer-explore-link:hover{
+      background-position: 0 0;
+    }
+
+    footer#contact a.footer-bottom-link{
+      color: #1a1a1a !important;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.25s ease, opacity 0.25s ease;
+    }
+
+    footer#contact a.footer-bottom-link:hover{
+      color: #000 !important;
+      opacity: 0.85;
+    }
+
+    footer#contact a.footer-contact-link{
+      color: #ffedd5 !important;
+      text-decoration: none;
+    }
+
+    footer#contact a.footer-contact-link:hover{
+      color: #fff !important;
+    }
+
+    footer#contact .footer-contact-icon{
+      color: #fff !important;
+    }
+
+    .footer-brand{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .footer-brand:hover{
+      opacity: 0.92;
+    }
+
+    .footer-logo{
+      width: 4.5rem;
+      height: 4.5rem;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .footer-brand-name{
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .footer-brand-tag{
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 0.15rem;
+    }
+
+    .hero-watch-btn{
+      color: var(--orange-deep) !important;
+      border-color: rgba(255, 127, 0, 0.55) !important;
+    }
+
+    .hero-watch-btn .hero-play-icon{
+      border-color: var(--orange) !important;
+      color: var(--orange) !important;
+    }
+
+    .hero-bg .hero-stat-num{
+      color: var(--orange-deep) !important;
+      text-shadow: none;
+    }
+
+    .hero-bg .hero-stat-label{
+      color: var(--orange) !important;
+    }
+
+    .location-card{
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      color: var(--text-primary);
+    }
+
+    .location-card .text-gray-400{
+      color: var(--text-muted) !important;
+    }
+
+    .about-panel{
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--glass-shadow);
+    }
+
+    .about-panel .text-gray-400{
+      color: var(--text-muted) !important;
+    }
+
+    .faq-item a{
+      color: var(--orange-deep);
+      text-decoration: none;
+    }
+
+    .faq-item a:hover{
+      color: var(--orange);
+    }
+
+    .header-brand .text-orange-300{
+      color: var(--orange-deep) !important;
+    }
+
+    .sr-only{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .glass-card .text-orange-400,
+    .card-bg .text-orange-400 {
+      color: #fff !important;
     }
 
     /* —— Scroll reveal —— */
@@ -446,26 +892,6 @@
       .hero-section .absolute{
         display: none;
       }
-    }
-
-    .faq-item summary{
-      list-style: none;
-    }
-
-    .faq-item summary::-webkit-details-marker{
-      display: none;
-    }
-
-    .faq-item[open] summary{
-      margin-bottom: 0.25rem;
-    }
-
-    .faq-item summary{
-      list-style: none;
-    }
-
-    .faq-item summary::-webkit-details-marker{
-      display: none;
     }
 
     .menu-carousel-wrap{
@@ -545,14 +971,11 @@
   </style>
 </head>
 
-<body class="text-white">
-
-  <div class="ember-glow" aria-hidden="true"></div>
-  <canvas id="ember-canvas" aria-hidden="true"></canvas>
+<body>
 
   <!-- ================= NAVBAR ================= -->
 
-  <header id="site-header" class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50">
     <div class="site-container py-3 md:py-4 flex items-center justify-between">
 
       <a href="/" class="header-brand flex items-center gap-2 sm:gap-3 min-w-0" aria-label="Camp Bite logo – homepage">
@@ -582,10 +1005,6 @@
         <a href="#locations" class="nav-link hover:text-orange-400 transition">Store Locations</a>
       </nav>
 
-      <button type="button" class="header-order-btn hidden md:inline-flex orange-gradient px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
-        Order Now
-      </button>
-
       <button id="mobile-menu-btn" type="button" class="md:hidden text-2xl p-2 shrink-0 ml-2" aria-label="Open menu">
         <span class="menu-icon-fallback" aria-hidden="true">☰</span>
         <i class="fa-solid fa-bars menu-icon-fa" aria-hidden="true"></i>
@@ -593,11 +1012,11 @@
     </div>
   </header>
 
-  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></div>
+  <div id="mobile-menu-overlay" class="fixed inset-0 backdrop-blur-sm z-40 hidden"></div>
 
   <aside
     id="mobile-menu"
-    class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#111111] border-l border-white/10 z-50 flex flex-col translate-x-full transition-transform duration-300 md:hidden"
+    class="fixed top-0 right-0 h-full w-72 max-w-[85vw] z-50 flex flex-col translate-x-full transition-transform duration-300 md:hidden"
     aria-hidden="true"
   >
     <div class="p-6 flex items-center justify-between border-b border-white/10">
@@ -614,9 +1033,6 @@
       <a href="#offers" class="nav-link mobile-link hover:text-orange-400 transition">BOGO &amp; specials</a>
       <a href="#about" class="nav-link mobile-link hover:text-orange-400 transition">Why Camp Bite</a>
       <a href="#locations" class="nav-link mobile-link hover:text-orange-400 transition">Dhule &amp; Shirpur map</a>
-      <button class="orange-gradient mt-3 px-6 py-3 rounded-full font-semibold">
-        Order Now
-      </button>
     </nav>
   </aside>
 
@@ -628,54 +1044,57 @@
 
     <div class="site-container grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
 
-      <div class="reveal reveal-left">
+      <div class="reveal reveal-left hero-text">
 
-        <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange-500/20 border border-orange-400/20 mb-6">
-          <span aria-hidden="true">🔥</span>
-          <span class="text-sm font-medium">
-            Dhule &amp; Shirpur’s Viral Burger Spot
+        <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl glass-badge mb-6">
+          <span aria-hidden="true">⭐</span>
+          <span class="text-sm font-semibold">
+            4.8 rating · 5K+ happy reviews
           </span>
         </div>
 
-        <p class="text-lg sm:text-xl font-bold tracking-wide text-white/90 uppercase" aria-hidden="true">
-          Bigger · Juicier
+        <p class="text-lg sm:text-xl font-bold tracking-wide hero-sub uppercase" aria-hidden="true">
+          Crispy, Loaded, Juicy Deliciousness!
         </p>
 
         <h1 id="hero-heading" class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mt-2">
-          <span class="text-orange-500">Camp Bite</span> – Best Cafe for Burgers &amp; Fast Food in Dhule &amp; Shirpur
+          <span class="block">Camp Bite</span>
+          <span class="block text-[0.58em] sm:text-[0.62em] md:text-[0.58em] font-extrabold mt-2 leading-tight">
+            Burgers That <span class="text-white/95">Love</span> Camp Bite
+          </span>
         </h1>
 
-        <p class="mt-8 text-lg text-gray-300 leading-8 max-w-xl">
-          Looking for the best cafe in Dhule or best cafe in Shirpur? Camp Bite is your go-to burger cafe
-          with loaded patties, crispy fries, chilled drinks, and combos — at Jaihind College, Dhule and Karvand Naka, Shirpur.
+        <p class="mt-8 text-lg hero-muted leading-8 max-w-xl">
+          <span class="font-semibold">Camp Bite</span> is the official burger cafe in Dhule &amp; Shirpur — loaded burgers, crispy fries, chilled drinks, and combos at Jaihind College &amp; Karvand Naka.
         </p>
 
         <div class="mt-10 flex flex-wrap gap-5">
 
-          <a href="/menu.html" class="orange-gradient inline-flex items-center px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition">
-            See burger prices
+          <a href="/menu.html" class="btn-glass inline-flex items-center px-8 py-4 rounded-full text-lg font-semibold">
+            Explore Menu
           </a>
 
-          <button onclick="window.open('https://www.instagram.com/camp_bite/?utm_source=ig_web_button_share_sheet', '_blank')" class="border border-white/20 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition">
+          <button onclick="window.open('https://www.instagram.com/camp_bite/?utm_source=ig_web_button_share_sheet', '_blank')" class="hero-watch-btn inline-flex items-center gap-3 px-6 py-4 rounded-full text-lg font-semibold border-2 hover:bg-orange-500/10 transition">
+            <span class="hero-play-icon flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm">▶</span>
             Watch Reel
           </button>
         </div>
 
-        <div class="mt-12 flex gap-10">
+        <div class="mt-12 flex gap-10 hero-stats">
 
           <div>
-            <p class="text-3xl font-bold text-orange-400">5K+</p>
-            <p class="text-gray-400 mt-1">Happy Customers</p>
+            <p class="text-3xl font-bold hero-stat-num">5K+</p>
+            <p class="hero-stat-label mt-1">Happy Customers</p>
           </div>
 
           <div>
-            <p class="text-3xl font-bold text-orange-400">4.8★</p>
-            <p class="text-gray-400 mt-1">Google Rating</p>
+            <p class="text-3xl font-bold hero-stat-num">4.8★</p>
+            <p class="hero-stat-label mt-1">Google Rating</p>
           </div>
 
           <div>
-            <p class="text-3xl font-bold text-orange-400">20+</p>
-            <p class="text-gray-400 mt-1">Burger Options</p>
+            <p class="text-3xl font-bold hero-stat-num">20+</p>
+            <p class="hero-stat-label mt-1">Burger Options</p>
           </div>
 
         </div>
@@ -698,14 +1117,14 @@
           decoding="async"
         />
 
-        <div class="absolute bottom-8 right-8 glass p-6 rounded-3xl border border-white/10">
+        <div class="absolute bottom-8 right-8 glass-badge p-6 rounded-3xl">
 
-          <p class="text-4xl font-bold text-orange-400">
+          <p class="text-4xl font-bold text-orange-deep" style="color:var(--orange-deep)">
             50% OFF
           </p>
 
-          <p class="text-sm mt-2 text-gray-300">
-            Opening Week Special Offer
+          <p class="text-sm mt-2 text-muted">
+            Opening Week Special
           </p>
 
         </div>
@@ -718,23 +1137,20 @@
 
   <!-- ================= HOT ITEMS ================= -->
 
-  <section id="menu" class="py-24 bg-[#121212]">
+  <section id="menu" class="py-24 section-peach">
 
     <div class="site-container">
   
       <div class="text-center reveal reveal-fade">
   
-        <p class="text-orange-500 font-semibold tracking-[4px] uppercase">
-          Camp Bite Specials
-        </p>
+        <p class="hot-items-label mt-2">Hot Items</p>
   
-        <h2 class="text-5xl font-bold mt-4">
-          Hot Selling Burgers
+        <h2 class="text-4xl md:text-5xl font-bold mt-6 section-title">
+          Camp Bite Bestsellers
         </h2>
   
-        <p class="mt-5 text-gray-400 max-w-2xl mx-auto">
-          Loaded burgers with crispy patties, creamy sauces,
-          soft buns and explosive flavors.
+        <p class="mt-5 text-muted max-w-2xl mx-auto text-sm uppercase tracking-wide leading-relaxed">
+          Freshly prepared loaded burgers, creamy sauces, soft buns &amp; explosive flavors — Dhule &amp; Shirpur
         </p>
   
       </div>
@@ -745,7 +1161,7 @@
         <div class="menu-carousel-track">
   
           <!-- Card -->
-          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
+          <div class="reveal-child glass-card rounded-[35px] p-6 hover-scale w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=75&w=600&auto=format&fit=crop"
@@ -767,7 +1183,7 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <span class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-white">
                 ₹109
               </span>
   
@@ -780,7 +1196,7 @@
           </div>
   
           <!-- Card -->
-          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
+          <div class="reveal-child glass-card rounded-[35px] p-6 hover-scale w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=75&w=600&auto=format&fit=crop"
@@ -802,7 +1218,7 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <span class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-white">
                 ₹149
               </span>
   
@@ -815,7 +1231,7 @@
           </div>
   
           <!-- Card -->
-          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
+          <div class="reveal-child glass-card rounded-[35px] p-6 hover-scale w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=75&w=600&auto=format&fit=crop"
@@ -837,7 +1253,7 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <span class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-white">
                 ₹99
               </span>
   
@@ -850,7 +1266,7 @@
           </div>
   
           <!-- Card -->
-          <div class="reveal-child card-bg rounded-[35px] p-6 hover-scale border border-white/5 w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
+          <div class="reveal-child glass-card rounded-[35px] p-6 hover-scale w-[min(300px,calc(100vw-2.5rem))] flex-shrink-0">
   
             <img
               src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?q=75&w=600&auto=format&fit=crop"
@@ -872,7 +1288,7 @@
   
             <div class="flex items-center justify-between mt-6">
   
-              <span class="text-3xl font-bold text-orange-400">
+              <span class="text-3xl font-bold text-white">
                 ₹199
               </span>
   
@@ -893,7 +1309,7 @@
           All burgers &amp; combos
           <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <p class="text-gray-500 text-sm mt-4">Burgers · Fries · Cold Drinks · Combos</p>
+        <p class="text-muted text-sm mt-4">Burgers · Fries · Cold Drinks · Combos</p>
       </div>
   
     </div>
@@ -906,7 +1322,7 @@
 
     <div class="site-container">
 
-      <div class="orange-gradient rounded-[50px] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center reveal reveal-scale">
+      <div class="offer-glass rounded-[50px] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center reveal reveal-scale">
 
         <div>
 
@@ -924,8 +1340,8 @@
             the craziest burger deals in town.
           </p>
 
-          <button class="mt-10 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition">
-            Grab Offer
+          <button class="mt-10 btn-glass px-8 py-4 rounded-full font-bold text-lg">
+            Order Now
           </button>
 
         </div>
@@ -949,13 +1365,13 @@
 
   <!-- ================= ABOUT ================= -->
 
-  <section id="about" class="py-24 bg-[#121212]">
+  <section id="about" class="py-24">
 
     <div class="site-container grid lg:grid-cols-2 gap-20 items-center">
 
       <img
         src="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1200&auto=format&fit=crop"
-        class="rounded-[40px] reveal reveal-left parallax-img"
+        class="rounded-[40px] reveal reveal-left parallax-img glow"
         data-parallax="0.05"
         alt="Camp Bite burger cafe dining area near Jaihind College Dhule"
         width="800"
@@ -964,22 +1380,23 @@
         decoding="async"
       />
 
-      <div class="reveal reveal-right">
+      <div class="reveal reveal-right about-panel">
 
-        <p class="uppercase tracking-[5px] text-orange-500 font-semibold">
+        <p class="uppercase tracking-[5px] text-accent font-semibold">
           About Camp Bite
         </p>
 
-        <h2 class="text-5xl font-bold mt-5 leading-tight">
-          Built For Food Lovers & Gen Z Vibes
+        <h2 class="text-4xl md:text-5xl font-bold mt-5 leading-tight section-title">
+          Built For Food Lovers &amp; Gen Z Vibes
         </h2>
 
-        <p class="mt-8 text-gray-400 leading-8">
-          Camp Bite is more than just burgers — we are building a bold burger culture across Dhule and Shirpur
+        <p class="mt-8 text-muted leading-8">
+          <span class="font-semibold">Camp Bite</span> is more than just burgers — we are building a bold burger culture across Dhule and Shirpur
           with loaded flavors, cinematic food reels, premium ingredients, and unforgettable experiences.
           Whether you visit Camp Bite Dhule near Jaihind College or Camp Bite Shirpur at Karvand Naka, you get the same viral menu and Gen Z cafe energy.
         </p>
         <p class="mt-6 text-gray-400 leading-8">
+          Camp Bite is an independent cafe brand based in Maharashtra, India — focused on burgers and fast food, not outdoor camping.
           From crispy chicken crunch burgers to veg loaded patties, peri peri fries, and chilled drinks,
           every item is prepared fresh when you order. We focus on soft buns, signature sauces made daily,
           and portions that feel worth every rupee — the kind of food you want to share on Instagram
@@ -989,22 +1406,22 @@
         <div class="mt-10 space-y-5">
 
           <div class="flex items-start gap-4">
-            <div class="text-orange-500 text-2xl">✔</div>
+            <div class="text-accent text-2xl">✔</div>
             <p>Freshly prepared signature sauces daily</p>
           </div>
 
           <div class="flex items-start gap-4">
-            <div class="text-orange-500 text-2xl">✔</div>
+            <div class="text-accent text-2xl">✔</div>
             <p>Soft buttery buns with crispy patties</p>
           </div>
 
           <div class="flex items-start gap-4">
-            <div class="text-orange-500 text-2xl">✔</div>
+            <div class="text-accent text-2xl">✔</div>
             <p>Instagram-worthy aesthetic experience</p>
           </div>
 
           <div class="flex items-start gap-4">
-            <div class="text-orange-500 text-2xl">✔</div>
+            <div class="text-accent text-2xl">✔</div>
             <p>Affordable pricing for students & food lovers</p>
           </div>
 
@@ -1018,20 +1435,20 @@
 
   <!-- ================= OUR OUTLETS ================= -->
 
-  <section id="locations" class="py-24 bg-[#0d0d0d] border-t border-white/5" aria-labelledby="locations-title">
+  <section id="locations" class="py-24 section-peach" aria-labelledby="locations-title">
     <div class="site-container">
       <div class="text-center reveal reveal-fade max-w-3xl mx-auto">
-        <p class="text-orange-500 font-semibold tracking-[4px] uppercase text-sm">Two Cities · One Brand</p>
-        <h2 id="locations-title" class="text-3xl sm:text-4xl font-bold mt-4">
+        <p class="text-accent font-semibold tracking-[4px] uppercase text-sm">Two Cities · One Brand</p>
+        <h2 id="locations-title" class="text-3xl sm:text-4xl font-bold mt-4 section-title">
           Camp Bite Outlets in Dhule &amp; Shirpur
         </h2>
-        <p class="mt-5 text-gray-400 leading-8">
+        <p class="mt-5 text-muted leading-8">
           Visit the Camp Bite outlet nearest you — same loaded burgers, fries, drinks, and combo deals at both locations.
         </p>
       </div>
 
       <div class="mt-14 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal-stagger">
-        <article class="reveal-child card-bg rounded-[32px] p-8 border border-white/10 glow">
+        <article class="reveal-child location-card rounded-[32px] p-8 glow">
           <div class="flex items-center gap-3 mb-6">
             <div class="h-12 w-12 rounded-2xl orange-gradient flex items-center justify-center text-xl" aria-hidden="true">
               <i class="fa-solid fa-store"></i>
@@ -1059,7 +1476,7 @@
           </a>
         </article>
 
-        <article class="reveal-child card-bg rounded-[32px] p-8 border border-white/10 glow">
+        <article class="reveal-child location-card rounded-[32px] p-8 glow">
           <div class="flex items-center gap-3 mb-6">
             <div class="h-12 w-12 rounded-2xl orange-gradient flex items-center justify-center text-xl" aria-hidden="true">
               <i class="fa-solid fa-store"></i>
@@ -1092,54 +1509,63 @@
 
   <!-- ================= FAQ ================= -->
 
-  <section id="faq" class="py-20 bg-[#121212]" aria-labelledby="faq-title">
+  <section id="faq" class="py-20" aria-labelledby="faq-title">
     <div class="site-container max-w-3xl">
-      <h2 id="faq-title" class="text-3xl sm:text-4xl font-bold text-center">
+      <h2 id="faq-title" class="text-3xl sm:text-4xl font-bold text-center section-title">
         Frequently Asked Questions
       </h2>
       <div class="mt-10 space-y-4 faq-list">
-        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+        <details class="faq-item rounded-2xl px-6 py-4">
+          <summary class="text-lg font-semibold text-orange-400 cursor-pointer">What is Camp Bite?</summary>
+          <p class="mt-3 text-gray-400 leading-8">
+            Camp Bite is an independent burger cafe brand in Maharashtra, India, with outlets at
+            <a href="#locations" class="text-orange-400 hover:text-orange-300 transition">Camp Bite Dhule</a> (Jaihind College) and
+            <a href="#locations" class="text-orange-400 hover:text-orange-300 transition">Camp Bite Shirpur</a> (Karvand Naka).
+            We serve loaded burgers, fries, drinks, and combos — a food cafe, not an outdoor camping service.
+          </p>
+        </details>
+        <details class="faq-item rounded-2xl px-6 py-4">
           <summary class="text-lg font-semibold text-orange-400 cursor-pointer">What is the best cafe in Dhule?</summary>
           <p class="mt-3 text-gray-400 leading-8">
             Camp Bite near Jaihind College is a leading cafe in Dhule for loaded burgers, fries, drinks, and fast food combos.
             Students and families choose us for taste, portion size, and affordable pricing.
-            Visit our Dhule outlet or <a href="/menu.html" class="text-orange-400 hover:underline">Dhule menu &amp; rates</a>.
+            Visit our Dhule outlet or <a href="/menu.html" class="text-orange-400 hover:text-orange-300 transition">Dhule menu &amp; rates</a>.
           </p>
         </details>
-        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+        <details class="faq-item rounded-2xl px-6 py-4">
           <summary class="text-lg font-semibold text-orange-400 cursor-pointer">What is the best cafe in Shirpur?</summary>
           <p class="mt-3 text-gray-400 leading-8">
             Camp Bite at Karvand Naka is a popular cafe in Shirpur for burgers, fries, and chilled beverages.
             Visit us or order on WhatsApp for the same viral menu as our Dhule outlet.
           </p>
         </details>
-        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+        <details class="faq-item rounded-2xl px-6 py-4">
           <summary class="text-lg font-semibold text-orange-400 cursor-pointer">Where are Camp Bite outlets?</summary>
           <p class="mt-3 text-gray-400 leading-8">
             Dhule: Jaihind College Area, Maharashtra 424001. Shirpur: Karvand Naka, Maharashtra 425405.
-            Both open daily 11 AM–11 PM. <a href="#locations" class="text-orange-400 hover:underline">Get directions to both stores</a>.
+            Both open daily 11 AM–11 PM. <a href="#locations" class="text-orange-400 hover:text-orange-300 transition">Get directions to both stores</a>.
           </p>
         </details>
-        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+        <details class="faq-item rounded-2xl px-6 py-4">
           <summary class="text-lg font-semibold text-orange-400 cursor-pointer">Does Camp Bite offer veg burgers?</summary>
           <p class="mt-3 text-gray-400 leading-8">
             Yes — Veg Loaded Burger, fries, drinks, and combos for vegetarian guests.
-            <a href="/menu.html" class="text-orange-400 hover:underline">Vegetarian burger list</a>.
+            <a href="/menu.html" class="text-orange-400 hover:text-orange-300 transition">Vegetarian burger list</a>.
           </p>
         </details>
-        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+        <details class="faq-item rounded-2xl px-6 py-4">
           <summary class="text-lg font-semibold text-orange-400 cursor-pointer">How can I order from Camp Bite?</summary>
           <p class="mt-3 text-gray-400 leading-8">
-            Dine in at either outlet, <a href="tel:+918668806938" class="text-orange-400 hover:underline">ring Camp Bite</a>,
-            or <a href="https://wa.me/918668806938" class="text-orange-400 hover:underline" rel="noopener noreferrer" target="_blank">order via WhatsApp chat</a>.
+            Dine in at either outlet, <a href="tel:+918668806938" class="text-orange-400 hover:text-orange-300 transition">ring Camp Bite</a>,
+            or <a href="https://wa.me/918668806938" class="text-orange-400 hover:text-orange-300 transition" rel="noopener noreferrer" target="_blank">order via WhatsApp chat</a>.
             Ask about BOGO opening-week deals when available.
           </p>
         </details>
-        <details class="faq-item card-bg rounded-2xl border border-white/10 px-6 py-4">
+        <details class="faq-item rounded-2xl px-6 py-4">
           <summary class="text-lg font-semibold text-orange-400 cursor-pointer">Why is Camp Bite popular?</summary>
           <p class="mt-3 text-gray-400 leading-8">
             Affordable pricing, large portions, fast service, and a modern cafe vibe at both Dhule and Shirpur.
-            Follow <a href="https://www.instagram.com/camp_bite/" class="text-orange-400 hover:underline" rel="noopener noreferrer" target="_blank">@camp_bite on Instagram</a> for hours and offers.
+            Follow <a href="https://www.instagram.com/camp_bite/" class="text-orange-400 hover:text-orange-300 transition" rel="noopener noreferrer" target="_blank">@camp_bite on Instagram</a> for hours and offers.
           </p>
         </details>
       </div>
@@ -1150,15 +1576,27 @@
 
   <!-- ================= FOOTER ================= -->
 
-  <footer id="contact" class="bg-black py-20 border-t border-white/10">
+  <footer id="contact" class="py-20">
 
     <div class="site-container grid md:grid-cols-2 lg:grid-cols-4 gap-14 reveal-stagger">
 
       <div class="reveal-child">
 
-        <p class="text-3xl font-bold">
-          Camp Bite
-        </p>
+        <a href="/" class="footer-brand" aria-label="Camp Bite home">
+          <img
+            src="logo-removebg-preview.png"
+            alt="Camp Bite logo"
+            class="footer-logo"
+            width="72"
+            height="72"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <p class="footer-brand-name">CAMP BITE</p>
+            <p class="footer-brand-tag">BURGER CAFE</p>
+          </div>
+        </a>
 
         <p class="mt-6 text-gray-400 leading-8">
           Best cafe &amp; burger destination in Dhule and Shirpur — loaded burgers, fries, fast food &amp; combos.
@@ -1173,13 +1611,13 @@
         </p>
 
         <ul class="space-y-4 text-gray-400">
-          <li><a href="/" class="hover:text-orange-400 transition">Return to top</a></li>
-          <li><a href="/menu.html" class="hover:text-orange-400 transition">Every dish we serve</a></li>
-          <li><a href="/#menu" class="hover:text-orange-400 transition">Customer favourites</a></li>
-          <li><a href="/#offers" class="hover:text-orange-400 transition">Today&apos;s deals</a></li>
-          <li><a href="/#about" class="hover:text-orange-400 transition">Brand &amp; vibe</a></li>
-          <li><a href="/#locations" class="hover:text-orange-400 transition">Both outlet addresses</a></li>
-          <li><a href="/#faq" class="hover:text-orange-400 transition">Read FAQs</a></li>
+          <li><a href="/" class="footer-explore-link">Return to top</a></li>
+          <li><a href="/menu.html" class="footer-explore-link">Every dish we serve</a></li>
+          <li><a href="/#menu" class="footer-explore-link">Customer favourites</a></li>
+          <li><a href="/#offers" class="footer-explore-link">Today&apos;s deals</a></li>
+          <li><a href="/#about" class="footer-explore-link">Brand &amp; vibe</a></li>
+          <li><a href="/#locations" class="footer-explore-link">Both outlet addresses</a></li>
+          <li><a href="/#faq" class="footer-explore-link">Read FAQs</a></li>
         </ul>
 
       </div>
@@ -1200,12 +1638,12 @@
             <p class="mt-1 text-sm leading-7">Karvand Naka, Shirpur, MH</p>
           </li>
           <li class="flex items-start gap-3 pt-2 border-t border-white/10">
-            <i class="fa-solid fa-phone text-orange-500 mt-1 shrink-0" aria-hidden="true"></i>
-            <a href="tel:+918668806938" class="hover:text-orange-400 transition">Contact by phone</a>
+            <i class="fa-solid fa-phone footer-contact-icon mt-1 shrink-0" aria-hidden="true"></i>
+            <a href="tel:+918668806938" class="footer-contact-link hover:text-white transition">Contact by phone</a>
           </li>
           <li class="flex items-start gap-3">
-            <i class="fa-solid fa-envelope text-orange-500 mt-1 shrink-0" aria-hidden="true"></i>
-            <a href="mailto:campbite.official@gmail.com" class="hover:text-orange-400 transition break-all">campbite.official@gmail.com</a>
+            <i class="fa-solid fa-envelope footer-contact-icon mt-1 shrink-0" aria-hidden="true"></i>
+            <a href="mailto:campbite.official@gmail.com" class="footer-contact-link hover:text-white transition break-all">campbite.official@gmail.com</a>
           </li>
         </ul>
 
@@ -1249,8 +1687,8 @@
     <div class="border-t border-white/10 mt-16 pt-8 text-center text-gray-500 space-y-3">
       <p class="text-sm text-gray-400 max-w-2xl mx-auto px-4">
         Camp Bite — best cafe &amp; burger spot in Dhule (Jaihind College) &amp; Shirpur (Karvand Naka). Cafe, burgers, fries &amp; fast food.
-        <a href="/#locations" class="text-orange-400 hover:underline">Choose your city</a> or
-        <a href="/menu.html" class="text-orange-400 hover:underline">full Camp Bite menu</a>.
+        <a href="/#locations" class="footer-bottom-link">Choose your city</a> or
+        <a href="/menu.html" class="footer-bottom-link">full Camp Bite menu</a>.
       </p>
       <p>© 2026 Camp Bite. All Rights Reserved.</p>
     </div>
